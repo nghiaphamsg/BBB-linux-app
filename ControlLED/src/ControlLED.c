@@ -4,7 +4,7 @@
  Author      : NghiaPham
  Version     :
  Copyright   : Your copyright notice
- Description : Hello World in C, Ansi-style
+ Description : Control USER LED 3 (internal Led) in BBB, Ansi-style
  ============================================================================
  */
 
