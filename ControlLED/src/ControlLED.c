@@ -86,7 +86,6 @@ int main(int argc, char *argv[]) {
 	if(argc != 3) {
         printf("Usage: %s <CONTROL_OPTION> <LED_NUMBER> <STATE> \n", argv[0] );
         printf("Valid control_options: brightness, trigger \n");
-        printf("Valid led number: led0, led1, led2, led3 \n");
         printf("valid 'brightness' values: 0, 1 \n");
         printf("valid 'trigger' values: heartbeat,timer, none, shot, default-on \n");
 	}
