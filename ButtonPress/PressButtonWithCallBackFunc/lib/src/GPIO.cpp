@@ -197,7 +197,7 @@ void* threadedToggle(void* value) {
 		else
 			gpio->setValue(LOW);
 		usleep(gpio->togglePeriod * 500);
-		isHigh=!isHigh;
+		isHigh =! isHigh;
 		if(gpio->toggleNumber > 0)
 			gpio->toggleNumber--;
 		if(gpio->toggleNumber == 0)
@@ -224,26 +224,27 @@ int GPIO::waitForEdge() {
 
     // ev.events = read operation | edge triggered | urgent data
     ev.events = EPOLLIN | EPOLLET | EPOLLPRI;
-    ev.data.fd = fd;  // Attach the file file descriptor
+    ev.data.fd = fd;  						// Attach the file file descriptor
 
     //Register the file descriptor on the epoll instance, see: man epoll_ctl
     if(epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev) == -1) {
        perror("GPIO: Failed to add control interface");
        return -1;
     }
-	while(count <= 1){  // Ignore the first trigger
+	while(count <= 1){  					// Ignore the first trigger
 		i = epoll_wait(epollfd, &ev, 1, -1);
 		if(i == -1){
 			perror("GPIO: Poll Wait fail");
-			count = 5; // Terminate loop
+			count = 5; 						// Terminate loop
 		}
 		else {
-			count++; // Count the triggers up
+			count++; 						// Count the triggers up
 		}
 	}
     close(fd);
-    if(count == 5)
+    if(count == 5) {
     	return -1;
+    }
 	return 0;
 }
 
@@ -260,7 +261,7 @@ int GPIO::waitForEdge(callBackType callback){
 	this->threadRunning = true;
 	this->callBackFunction = callback;
 	pthread_t thread;
-    // create the thread, pass the reference, address of the function and data
+    // Create the thread, pass the reference, address of the function and data
     if(pthread_create(&thread, NULL, &threadedPoll, static_cast<void*>(this))){
     	perror("GPIO: Failed to create the poll thread");
     	this->threadRunning = false;
