@@ -19,6 +19,8 @@
 #include <cstdio>
 #include <fcntl.h>
 
+#define MAX_EVENT			1
+
 GPIO::GPIO(int number) {
 	this->number = number;
 	this->debounceTime = 0;
@@ -36,7 +38,6 @@ GPIO::GPIO(int number) {
 
 int GPIO::write(std::string path, std::string fileName, std::string value) {
 	std::ofstream fs;
-
 	fs.open((path + fileName).c_str());
 	if(!fs.is_open()) {
 		std::perror("<<<DEBUG>>> GPIO: write failed to open file");
@@ -209,40 +210,49 @@ void* threadedToggle(void* value) {
 // Blocking Poll
 int GPIO::waitForEdge() {
 	setDirection(INPUT);
-	int fd, i, epollfd, count=0;
-	struct epoll_event ev;
+	int fd, event_count, epollfd, count = 0;
+
 	epollfd = epoll_create(1);
 
 	if(epollfd == -1) {
-	   perror("<<<DEBUG>>> GPIO: Failed to create epollfd");
+		std::perror("<<<DEBUG>>> GPIO: Failed to create epollfd");
 	   return -1;
 	}
 
 	fd = open((this->path + "value").c_str(), O_RDONLY | O_NONBLOCK);
     if(fd == -1) {
-       perror("<<<DEBUG>>> GPIO: Failed to open file");
+    	std::perror("<<<DEBUG>>> GPIO: Failed to open file");
        return -1;
     }
 
     // ev.events = read operation | edge triggered | urgent data
+	struct epoll_event ev;
     ev.events = EPOLLIN | EPOLLET | EPOLLPRI;
     ev.data.fd = fd;  						// Attach the file file descriptor
 
     //Register the file descriptor on the epoll instance
     if(epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev) == -1) {
-       perror("<<<DEBUG>>> GPIO: Failed to add control interface");
+    	std::perror("<<<DEBUG>>> GPIO: Failed to add control interface");
        return -1;
     }
 	while(count <= 1){  					// Ignore the first trigger
-		i = epoll_wait(epollfd, &ev, 1, -1);
-		if(i == -1){
-			perror("<<<DEBUG>>> GPIO: Poll Wait fail");
+		std::cout << "<<<DEBUG>>> Polling for input..." << std::endl;
+		event_count = epoll_wait(epollfd, &ev, MAX_EVENT, -1);
+		std::cout << "<<<DEBUG>>> Ready events " << event_count << std::endl;
+		if(event_count == -1){
+			std::perror("<<<DEBUG>>> GPIO: Poll Wait fail");
 			count = 5; 						// Terminate loop
 		}
 		else {
 			count++; 						// Count the triggers up
 		}
 	}
+
+    if(close(epollfd)) {
+    	std::perror("<<<DEBUG>>> Failed to close epoll file descriptor");
+    	return -1;
+    }
+
     close(fd);
     if(count == 5) {
     	return -1;
