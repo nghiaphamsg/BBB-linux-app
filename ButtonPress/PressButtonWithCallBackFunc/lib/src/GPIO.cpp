@@ -181,7 +181,7 @@ int GPIO::toggleOutput(int numberOfTimes, int time) {
 	threadRunning = true;
 	pthread_t thread;
 	if(pthread_create(&thread, NULL, &threadedToggle, static_cast<void*>(this))) {
-		perror("GPIO: Failed to create the toggle thread");
+		perror("<<<DEBUG>>> GPIO: Failed to create the toggle thread");
 		threadRunning = false;
 		return -1;
 	}
@@ -214,11 +214,13 @@ int GPIO::waitForEdge() {
 	epollfd = epoll_create(1);
 
 	if(epollfd == -1) {
-	   perror("GPIO: Failed to create epollfd");
+	   perror("<<<DEBUG>>> GPIO: Failed to create epollfd");
 	   return -1;
 	}
-    if((fd = open((this->path + "value").c_str(), O_RDONLY | O_NONBLOCK)) == -1) {
-       perror("GPIO: Failed to open file");
+
+	fd = open((this->path + "value").c_str(), O_RDONLY | O_NONBLOCK);
+    if(fd == -1) {
+       perror("<<<DEBUG>>> GPIO: Failed to open file");
        return -1;
     }
 
@@ -226,15 +228,15 @@ int GPIO::waitForEdge() {
     ev.events = EPOLLIN | EPOLLET | EPOLLPRI;
     ev.data.fd = fd;  						// Attach the file file descriptor
 
-    //Register the file descriptor on the epoll instance, see: man epoll_ctl
+    //Register the file descriptor on the epoll instance
     if(epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev) == -1) {
-       perror("GPIO: Failed to add control interface");
+       perror("<<<DEBUG>>> GPIO: Failed to add control interface");
        return -1;
     }
 	while(count <= 1){  					// Ignore the first trigger
 		i = epoll_wait(epollfd, &ev, 1, -1);
 		if(i == -1){
-			perror("GPIO: Poll Wait fail");
+			perror("<<<DEBUG>>> GPIO: Poll Wait fail");
 			count = 5; 						// Terminate loop
 		}
 		else {
@@ -263,7 +265,7 @@ int GPIO::waitForEdge(callBackType callback){
 	pthread_t thread;
     // Create the thread, pass the reference, address of the function and data
     if(pthread_create(&thread, NULL, &threadedPoll, static_cast<void*>(this))){
-    	perror("GPIO: Failed to create the poll thread");
+    	perror("<<<DEBUG>>> GPIO: Failed to create the poll thread");
     	this->threadRunning = false;
     	return -1;
     }
