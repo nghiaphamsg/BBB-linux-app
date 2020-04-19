@@ -16,8 +16,8 @@ enable_uboot_overlays=1
 #uboot_overlay_addr3=/lib/firmware/<file3>.dtbo
 ###
 ###Additional custom capes
-#uboot_overlay_addr4=/lib/firmware/<file3>.dtbo
-#uboot_overlay_addr5=/lib/firmware/<file3>.dtbo
+#uboot_overlay_addr4=/lib/firmware/<file4>.dtbo
+#uboot_overlay_addr5=/lib/firmware/<file5>.dtbo
 #uboot_overlay_addr6=/lib/firmware/<file6>.dtbo
 #uboot_overlay_addr7=/lib/firmware/<file7>.dtbo
 ###
