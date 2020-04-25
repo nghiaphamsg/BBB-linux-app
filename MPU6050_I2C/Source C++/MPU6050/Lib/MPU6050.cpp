@@ -155,9 +155,16 @@ void MPU6050::setGyroRange(MPU6050::GYRO_RANGE gyroRange) {
 void MPU6050::display(){
 	while(1){
 		readSensor();
-		std::cout << std::setprecision(2) << getAccXGravity() << "   " << getAccYGravity()<<  "   " <<  getAccZGravity() << std::endl;
-		std::cout << std::setprecision(4) << getGyroXGravity() << "   " << getGyroYGravity()<<  "   " <<  getGyroZGravity() << std::endl;
-		usleep(50 * 1000);
+		std::cout << std::setprecision(2)
+		<< "ACC-X: "<< this->getAccXGravity()
+		<< "    ACC-Y:" << this->getAccYGravity()
+		<< "    ACC-Z:" << this->getAccZGravity()
+		<< std::setprecision(4)
+		<< "    GYRO-X: "<< this->getGyroXGravity()
+		<< "    GYRO-Y:" << this->getGyroYGravity()
+		<< "    GYRO-Z:" << this->getGyroZGravity()
+		<< "     \r"<< std::flush;
+		usleep(100000);
 	}
 }
 
