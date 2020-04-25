@@ -58,48 +58,50 @@ void MPU6050::updateRegisters(){
    this->writeRegister(MPU6050_GYRO_CONFIG, gyroDataFormat);
 }
 
-void MPU6050::calculateGravity() {
-	int accFsSensi = 0, gyroFsSensi = 0;
+void MPU6050::convertAccRawToGravity() {
+	int accFsSensi = 0;
 
-	/* Calculate for accelerometer	*/
 	switch(MPU6050::accRange){
 		case ACC_FS_SEL_2G:
-			gyroFsSensi = ACC_FS_SENSITIVITY_0;
+			accFsSensi = ACC_FS_SENSITIVITY_0;
 			break;
 		case ACC_FS_SEL_4G:
-			gyroFsSensi = ACC_FS_SENSITIVITY_1;
+			accFsSensi = ACC_FS_SENSITIVITY_1;
 			break;
 		case ACC_FS_SEL_8G:
-			gyroFsSensi = ACC_FS_SENSITIVITY_2;
+			accFsSensi = ACC_FS_SENSITIVITY_2;
 			break;
 		default:
-			gyroFsSensi = ACC_FS_SENSITIVITY_3;
+			accFsSensi = ACC_FS_SENSITIVITY_3;
 			break;
 	}
 
-	this->accX_G = (float)accX/gyroFsSensi;
-	this->accY_G = (float)accY/gyroFsSensi;
-	this->accZ_G = (float)accZ/gyroFsSensi;
+	this->accX_G = (float)accX/accFsSensi;
+	this->accY_G = (float)accY/accFsSensi;
+	this->accZ_G = (float)accZ/accFsSensi;
+}
 
-	/* Calculate for gyroscope	*/
+void MPU6050::convertGyroRawToGravity() {
+	int gyroFsSensi = 0;
+
 	switch(MPU6050::accRange){
 		case GYRO_FS_SEL_250:
-			accFsSensi = GYRO_FS_SENSITIVITY_0;
+			gyroFsSensi = GYRO_FS_SENSITIVITY_0;
 			break;
 		case GYRO_FS_SEL_500:
-			accFsSensi = GYRO_FS_SENSITIVITY_1;
+			gyroFsSensi = GYRO_FS_SENSITIVITY_1;
 			break;
 		case GYRO_FS_SEL_1000:
-			accFsSensi = GYRO_FS_SENSITIVITY_2;
+			gyroFsSensi = GYRO_FS_SENSITIVITY_2;
 			break;
 		default:
-			accFsSensi = GYRO_FS_SENSITIVITY_3;
+			gyroFsSensi = GYRO_FS_SENSITIVITY_3;
 			break;
 	}
 
-	this->gyroX_G = (double)gyroX/accFsSensi;
-	this->gyroY_G = (double)gyroY/accFsSensi;
-	this->gyroZ_G = (double)gyroZ/accFsSensi;
+	this->gyroX_G = (double)gyroX/gyroFsSensi;
+	this->gyroY_G = (double)gyroY/gyroFsSensi;
+	this->gyroZ_G = (double)gyroZ/gyroFsSensi;
 }
 
 MPU6050::MPU6050(unsigned int I2CBus, unsigned int I2CAddress)
@@ -138,7 +140,8 @@ int MPU6050::readSensor() {
 	gyroZ = this->combineRegisters(*(registers + MPU6050_GYRO_ZOUT_H), *(registers + MPU6050_GYRO_ZOUT_L));
 	this->gyroRange = (MPU6050::GYRO_RANGE) ((*(registers + MPU6050_GYRO_CONFIG) & 0x18) >> 3);
 
-	calculateGravity();
+	convertAccRawToGravity();
+	convertGyroRawToGravity();
 	return 0;
 }
 
@@ -154,16 +157,16 @@ void MPU6050::setGyroRange(MPU6050::GYRO_RANGE gyroRange) {
 
 void MPU6050::display(){
 	while(1){
-		readSensor();
-		std::cout << std::setprecision(2)
-		<< "ACC-X: "<< this->getAccXGravity()
-		<< "    ACC-Y:" << this->getAccYGravity()
-		<< "    ACC-Z:" << this->getAccZGravity()
+		this->readSensor();
+		std::cout 		 << std::setprecision(2)
+		<< "	ACC-X:"  << this->getAccXGravity()
+		<< "    ACC-Y:"  << this->getAccYGravity()
+		<< "    ACC-Z:"  << this->getAccZGravity()
 		<< std::setprecision(4)
-		<< "    GYRO-X: "<< this->getGyroXGravity()
+		<< "    GYRO-X:" << this->getGyroXGravity()
 		<< "    GYRO-Y:" << this->getGyroYGravity()
 		<< "    GYRO-Z:" << this->getGyroZGravity()
-		<< "     \r"<< std::flush;
+		<< "    \r"		 << std::flush;
 		usleep(100000);
 	}
 }

@@ -40,7 +40,8 @@ class MPU6050:protected I2C {
 		double gyroX_G, gyroY_G, gyroZ_G;
 		short combineRegisters(unsigned char msb, unsigned char lsb);
 		virtual void updateRegisters();
-		virtual void calculateGravity();
+		virtual void convertAccRawToGravity();
+		virtual void convertGyroRawToGravity();
 	public:
 		MPU6050(unsigned int I2CBus, unsigned int I2CAddress = 0x68);
 		virtual int readSensor();

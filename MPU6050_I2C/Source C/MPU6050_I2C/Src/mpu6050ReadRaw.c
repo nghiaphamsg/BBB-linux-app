@@ -72,22 +72,22 @@ int mpu6050Write(uint8_t addr, uint8_t data) {
 	char buff[2];
 	buff[0] = addr;
 	buff[1] = data;
-	if(write(fd, buff, 2) <= 0) {
+	if(write(fd, buff, 2) != 2) {
 		perror("<<<DEBUG>>> Write failed. \n");
 		return -1;
 	}
 	return 0;
 }
 
-int mpu6050Read(uint8_t base_addr, char *pBuffer, uint32_t lenght) {
+int mpu6050Read(uint8_t base_addr, char *pBuffer, uint32_t length) {
 	char buff[2];
 	buff[0] = base_addr;
-	if(write(fd, buff, 1) <= 0) {
+	if(write(fd, buff, 1) != 1) {
 		perror("<<<DEBUG>>> Write failed. \n");
 		return -1;
 	}
 
-	if((read(fd, pBuffer, lenght)) <= 0) {
+	if((read(fd, pBuffer, length)) != length) {
 		perror("<<<DEBUG>>> Read failed. \n");
 		return -1;
 	}
@@ -155,6 +155,7 @@ int main() {
 		gyroZ = (double) gyroValue[2]/GYRO_FS_SENSITIVITY_0;
 
 		printf("%0.2f	%0.2f	%0.2f\n", accX, accY, accZ);
+		printf("%0.2f	%0.2f	%0.2f\n", gyroX, gyroY, gyroZ);
 		usleep(50 * 1000);
 	}
 	return 0;
