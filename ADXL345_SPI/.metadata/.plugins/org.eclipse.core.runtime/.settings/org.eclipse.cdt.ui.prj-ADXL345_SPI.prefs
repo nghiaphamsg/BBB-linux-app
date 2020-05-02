@@ -1,0 +1,3 @@
+buildConsole/keepLog=true
+buildConsole/logLocation=/home/nekobot/Project/BeagleboneBlack_Debian/ADXL345_SPI/.metadata/.plugins/org.eclipse.cdt.ui/ADXL345_SPI.build.log
+eclipse.preferences.version=1

@@ -1,0 +1,28 @@
+//============================================================================
+// Name        : ADXL345_SPI.cpp
+// Author      : NghiaPham
+// Version     :
+// Copyright   : Your copyright notice
+// Description :
+//============================================================================
+
+#include <iostream>
+#include "SPIDevice.h"
+#include <iomanip>				// setw(), setfill()
+
+int main() {
+	 SPIDevice spi(2, 0);
+	 spi.setSpeed(10000000);
+	 int read = spi.readRegister(0x01);
+	 std::cout << "The device ID1 is: " << std::hex << (int)read << std::endl;
+	 std::cout << "The device ID2 is: " << std::hex << read << std::endl;
+
+	 spi.setMode(SPIDevice::MODE3);
+	 spi.writeRegister(0x2D, 0x08);
+	 spi.debugDumpRegisters(0x40);
+//	 ADXL345 acc1(&spi);
+//	 acc1.setResolution(ADXL345::NORMAL);
+//	 acc1.setRange(ADXL345::PLUSMINUS_2_G);
+//	 acc1.display();
+	 return 0;
+}
