@@ -76,7 +76,6 @@ unsigned char SPIDevice::readRegister(unsigned int registerAddress) {
 
 	send[0] = (unsigned char) (0x80 + registerAddress);
 	this->transfer(send, receive, 2);
-	std::cout << std::hex << receive[1] << std::endl;
 	return receive[1];
 }
 
