@@ -1,0 +1,12 @@
+
+#XXXX: gmail name
+#yYYY: gmail password
+FromLineOverride=YES
+rewriteDomain=gmail.com
+mailhub=smtp.gmail.com:587
+root=XXXX@gmail.com
+AuthUser=XXXX@gmail.com
+AuthPass=YYYY
+UseTLS=YES
+UseSTARTTLS=YES
+hostname=beaglebone
