@@ -2,6 +2,8 @@
 
 ## Introduce
 Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone interfacing projects and much more.
+![](https://elementztechblog.files.wordpress.com/2014/11/beaglebone_black.jpg)\
+> Source: elementztechblog
 
 ## Target
 - Understanding various sub systems of AM335x (1GHz ARM® Cortex-A8) SOC such as GPIOs, I2C, SPI, MMC, etc...
@@ -27,7 +29,7 @@ Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone int
 |74HC595               |CronTab       |[ADXL345 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf)|
 |TMP36                 |ThingSpeak    |[74HC595 Datasheet](https://www.onsemi.com/pub/Collateral/MC74HC595-D.PDF)|
 |FT232RL USB Serial    |Socket I/O    |[TMP36 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)|
-|SD card (>4GB)        |Minicom
+|SD card (>4GB)        |Minicom       |[Beagleboard Cape Expansion Headers](https://elinux.org/Beagleboard:Cape_Expansion_Headers)|
 |LCD (Not Used)        |GParted
 
 ## How to connecting BBB to PC using external USB TO UART converter
@@ -35,3 +37,6 @@ Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone int
 
 ## Instruction list 
 1. [Using Busybox create RFS](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Busybox)
+2. [CGI using C++ on the BeagleBone](http://derekmolloy.ie/beaglebone-cgicc/)
+3. [Introduction to the BeagleBone Black Device Tree](https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/device-tree-overlays)\
+   And other link [The Beaglebone Black and Device Tree Overlays](http://www.ofitselfso.com/BeagleNotes/Beaglebone_Black_And_Device_Tree_Overlays.php)
