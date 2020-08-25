@@ -17,7 +17,7 @@ Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone int
 
 ## Prepare
 
-| Hardware             |Sortware      |Ebook                                                                                    |
+| Hardware             |Sortware      |Reference                                                                                |
 |----------------------|--------------|-----------------------------------------------------------------------------------------|
 |Beaglebone Black Rev.C|Ubuntu 18.04  |Exploring BeagleBone Tools and Techniques for Building with Embeddded Linux ®Derek Molloy|
 |MPU6050               |Eclipse IDE   |[AM335x ARM® Cortex™-A8 Microprocessors (MPUs) Technical Reference Manual](https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/790/AM335x_5F00_techincal_5F00_reference_5F00_manual.pdf)|
