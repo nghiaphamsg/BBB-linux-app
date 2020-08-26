@@ -1,0 +1,12 @@
+Package: eglibc-binary-localedata-en-us
+Version: 2.16-r22.4
+Description: eglibc-locale version 2.16-r22
+ binary locale definition for en-us
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2 & LGPLv2.1
+Architecture: armv7a-vfp-neon
+OE: eglibc-locale
+Homepage: unknown
+Source: None

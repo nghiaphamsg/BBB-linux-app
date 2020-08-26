@@ -1,0 +1,12 @@
+/etc/network/if-post-down.d/
+/etc/network/if-down.d/
+/etc/network/if-post-down.d/wpa-supplicant
+/usr/share/dbus-1/system-services/fi.w1.wpa_supplicant1.service
+/etc/network/if-pre-up.d/
+/usr/share/dbus-1/system-services/fi.epitest.hostap.WPASupplicant.service
+/etc/network/if-pre-up.d/wpa-supplicant
+/etc/dbus-1/system.d/dbus-wpa_supplicant.conf
+/etc/network/
+/etc/wpa_supplicant.conf
+/etc/default/volatiles/99_wpa_supplicant
+/usr/sbin/wpa_supplicant

@@ -1,0 +1,11 @@
+[Unit]
+Description=Bluetooth service
+
+[Service]
+Type=dbus
+BusName=org.bluez
+ExecStart=/usr/sbin/bluetoothd -n
+
+[Install]
+WantedBy=bluetooth.target
+Alias=dbus-org.bluez.service

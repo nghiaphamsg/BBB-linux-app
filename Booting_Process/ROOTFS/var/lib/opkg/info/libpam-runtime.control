@@ -1,0 +1,14 @@
+Package: libpam-runtime
+Version: 1.1.6-r2.8
+Description: Linux-PAM (Pluggable Authentication Modules)
+ Linux-PAM (Pluggable Authentication Modules for Linux), a flexible
+ mechanism for authenticating users
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+ | BSD
+Architecture: armv7a-vfp-neon
+OE: libpam
+Homepage: https://fedorahosted.org/linux-pam/
+Depends: pam-plugin-deny, pam-plugin-permit, pam-plugin-warn, pam-plugin-unix, libpam
+Source: http://linux-pam.org/library/Linux-PAM-1.1.6.tar.bz2 file://99_pam file://pam.d/* file://libpam-xtests.patch file://destdirfix.patch

@@ -1,0 +1,5 @@
+update-alternatives --install /sbin/init init /lib/systemd/systemd 300
+update-alternatives --install /sbin/halt halt /bin/systemctl 300
+update-alternatives --install /sbin/reboot reboot /bin/systemctl 300
+update-alternatives --install /sbin/shutdown shutdown /bin/systemctl 300
+update-alternatives --install /sbin/poweroff poweroff /bin/systemctl 300

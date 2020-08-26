@@ -1,0 +1,12 @@
+/etc/modprobe.d/
+/etc/depmod.d/
+/lib/modprobe.d/
+/lib/depmod.d/search.conf
+/sbin/modinfo.kmod
+/lib/depmod.d/
+/sbin/insmod.kmod
+/bin/lsmod.kmod
+/bin/kmod
+/sbin/modprobe.kmod
+/sbin/depmod.kmod
+/sbin/rmmod.kmod

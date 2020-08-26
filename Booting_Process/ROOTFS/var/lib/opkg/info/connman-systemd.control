@@ -1,0 +1,19 @@
+Package: connman-systemd
+Version: 1.4-r18.0.11
+Description: A daemon for managing internet connections within embedded devices
+ The ConnMan project provides a daemon for managing internet connections
+ within embedded devices running the Linux operating system.  The
+ Connection Manager is designed to be slim and to use as few resources as
+ possible, so it can be easily integrated. It is a fully modular system
+ that can be extended, through plug-ins, to support all kinds of wired or
+ wireless technologies. Also, configuration methods, like DHCP and domain
+ name resolving, are implemented using plug-ins.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: connman
+Homepage: http://connman.net/
+Depends: connman, systemd
+Source: git://git.kernel.org/pub/scm/network/connman/connman.git file://0001-plugin.h-Change-visibility-to-default-for-debug-symb.patch file://add_xuser_dbus_permission.patch file://connman file://0002-storage.c-If-there-is-no-d_type-support-use-fstatat.patch file://0001-timezone.c-If-there-is-no-d_type-support-use-fstatat.patch

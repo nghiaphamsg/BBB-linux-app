@@ -1,0 +1,16 @@
+Package: openssh-sftp-server
+Version: 6.0p1-r6.8
+Description: Secure rlogin/rsh/rcp/telnet replacement
+ Secure rlogin/rsh/rcp/telnet replacement (OpenSSH) Ssh (Secure Shell) is
+ a program for logging into a remote machine and for executing commands on
+ a remote machine.
+Section: console/network
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: BSD
+Architecture: armv7a-vfp-neon
+OE: openssh
+Homepage: http://openssh.org
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides: sshd, ssh
+Source: ftp://ftp.openbsd.org/pub/OpenBSD/OpenSSH/portable/openssh-6.0p1.tar.gz file://nostrip.patch file://sshd_config file://ssh_config file://init file://sshd file://cve-2010-5107.patch;pnum=4 file://sshd.socket file://sshd@.service file://sshdgenkeys.service

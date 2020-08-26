@@ -1,0 +1,1451 @@
+Package: shadow-securetty
+Version: 4.1.4.3-r1.1
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: pam-plugin-mail
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: udev-systemd
+Version: v196-105-gdecd634-r12.2
+Depends: udev
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: openssh-sftp-server
+Version: 6.0p1-r6.8
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides: sshd, ssh
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libpam
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16)
+Recommends: libpam-runtime
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: busybox-syslog
+Version: 1.20.2-r4.5
+Recommends: busybox-syslog-systemd
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/syslog-startup.conf.busybox 638acd6813015513fbd0c91d5918be4e
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libxdmcp6
+Version: 1:1.1.1-r0.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: kernel-module-g-mass-storage
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libc6
+Version: 2.16-r15+svnr20393.5
+Provides: rtld(GNU_HASH), glibc
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: opkg
+Version: 1:0.1.8+svnr633-r10.7.5
+Depends: opkg-config-base, update-alternatives-cworth, libopkg1 (>= 0.1.8+svnr633), libc6 (>= 2.16)
+Provides:
+Replaces: opkg-nogpg
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libcom-err2
+Version: 1.42.1-r4.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: iw
+Version: 3.6-r0.6
+Depends: libgcc1 (>= linaro-4.7), libnl-3-200 (>= 3.2.9), libnl-3-genl (>= 3.2.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kernel-module-nf-conntrack
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: busybox
+Version: 1.20.2-r4.5
+Depends: update-rc.d, libc6 (>= 2.16)
+Recommends: busybox-syslog, busybox-udhcpc
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: util-linux-umount
+Version: 2.21.2-r5.7
+Depends: libgcc1 (>= linaro-4.7), libblkid1 (>= 2.21.2), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: opkg-config-base
+Version: 1.0-r1.2
+Provides:
+Status: install user installed
+Architecture: beagleboard
+Conffiles:
+ /etc/opkg/arch.conf 2149fb16f5af9dc4574dac0a250b8b11
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: busybox-udhcpc
+Version: 1.20.2-r4.5
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libnl-3-200
+Version: 1:3.2.9-r0.6
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Replaces: libnl2
+Conflicts: libnl2
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libgcrypt11
+Version: 1.5.0-r1.8
+Depends: libcap2 (>= 2.22), libgpg-error0 (>= 1.10), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: pam-plugin-group
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: libusb-0.1-4
+Version: 1:0.1.3-r6.8
+Depends: libusb-1.0-0 (>= 1.0.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libffi6
+Version: 3.0.11-r0.6
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: dbus-1
+Version: 1.6.4-r5.0.11
+Depends: libx11-6 (>= 1.5.0), update-rc.d, libdbus-1-3 (>= 1.6.4), libc6 (>= 2.16), shadow, libexpat1 (>= 2.1.0), base-passwd, libsystemd-login0 (>= v196-105-gdecd634)
+Provides: dbus-x11
+Replaces: dbus-x11
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/dbus-1/system.conf 45cf86d3867654720b61faa8100d69f7
+ /etc/dbus-1/session.conf 3ec4497bcff6f8e1445db64b23bda595
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: libsystemd-journal0
+Version: v196-105-gdecd634-r12.2
+Depends: libgcc1 (>= linaro-4.7), libcap2 (>= 2.22), liblzma5 (>= 5.1.2alpha), libc6 (>= 2.16), libgpg-error0 (>= 1.10), libgcrypt11 (>= 1.5.0)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: kernel-module-snd-page-alloc
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kernel-module-rtc-twl
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: pam-plugin-securetty
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: kernel-module-soundcore
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libopkg1
+Version: 1:0.1.8+svnr633-r10.7.5
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libusb-1.0-0
+Version: 1.0.9-r1.2
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libuuid1
+Version: 2.21.2-r5.7
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: kernel-module-ip-tables
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28, kernel-module-x-tables
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-snd-soc-twl4030
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28, kernel-module-snd-page-alloc, kernel-module-snd-pcm, kernel-module-snd, kernel-module-snd-soc-core, kernel-module-regmap-spi, kernel-module-soundcore, kernel-module-snd-timer
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kernel-module-nf-conntrack-ipv4
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-module-nf-conntrack, kernel-3.2.28, kernel-module-nf-defrag-ipv4
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-g-serial
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libnl-3-cli
+Version: 1:3.2.9-r0.6
+Depends: libgcc1 (>= linaro-4.7), libnl-route-3-200 (>= 3.2.9), libnl-3-200 (>= 3.2.9), libnl-3-genl (>= 3.2.9), libc6 (>= 2.16), libnl-nf-3-200 (>= 3.2.9)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: base-files
+Version: 3.0.14-r91.1
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Conffiles:
+ /etc/fstab 7c31ed577641e0b51bf0869478aab32d
+ /etc/hostname 0fe4f57542695cbe9c13c04ae5c4eafd
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: alsa-conf-base
+Version: 1.0.25-r2.6
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: pam-plugin-motd
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: wpa-supplicant-cli
+Version: 1.0-r4.8
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: pam-plugin-warn
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libdbus-1-3
+Version: 1.6.4-r5.0.11
+Depends: libc6 (>= 2.16)
+Recommends: dbus-1
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libnl-3-genl
+Version: 1:3.2.9-r0.6
+Depends: libnl-3-cli (>= 3.2.9), libnl-3-200 (>= 3.2.9), libc6 (>= 2.16)
+Provides:
+Replaces: libnl-genl2, libnl-genl-3-200
+Conflicts: libnl-genl2, libnl-genl-3-200
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: pam-plugin-rootok
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: tzdata
+Version: 2012d-r3.0
+Provides:
+Conflicts: timezone-asia, timezone-europe, timezone-iso3166.tab, timezone-america, timezones, timezone-zone.tab, timezone-pacific, timezone-atlantic, timezone-antarctica, timezone-arctic, timezone-africa, timezone-indian, timezone-australia
+Status: install ok installed
+Architecture: all
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: packagegroup-basic
+Version: 1.0-r11.2
+Depends: openssh-sftp, systemd-compat-units, dropbear, avahi-utils, avahi-daemon, avahi-systemd, openssh-sftp-server
+Recommends: tzdata, alsa-utils-alsamixer, kernel-module-g-mass-storage, cpufrequtils, kernel-module-snd-soc-twl4030, usbutils, iw, bluez4, kernel-module-rtc-twl, htop, kernel-module-smsc95xx, kernel-module-g-ether, wpa-supplicant, kernel-module-g-serial
+Provides: task-basic
+Replaces: task-basic
+Conflicts: task-basic
+Status: install user installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+
+Package: util-linux-mount
+Version: 2.21.2-r5.7
+Depends: libgcc1 (>= linaro-4.7), libblkid1 (>= 2.21.2), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: usbutils
+Version: 006-r0.8
+Depends: libz1 (>= 1.2.7), usbutils-ids, libusb-1.0-0 (>= 1.0.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: dbus-systemd
+Version: 1.6.4-r5.0.11
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libtinfo5
+Version: 5.9-r12.1.0
+Depends: libc6 (>= 2.16)
+Recommends: ncurses-terminfo-base
+Suggests: ncurses-terminfo
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libsystemd-daemon0
+Version: v196-105-gdecd634-r12.2
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: kernel-module-regmap-spi
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: util-linux-swaponoff
+Version: 2.21.2-r5.7
+Depends: libblkid1 (>= 2.21.2), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: update-alternatives-cworth
+Version: 1:0.1.8+svnr633-r10.7.5
+Provides: update-alternatives
+Conflicts: update-alternatives-dpkg
+Status: install user installed
+Architecture: all
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: pam-plugin-permit
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: util-linux-agetty
+Version: 2.21.2-r5.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: ofono
+Version: 1.10-r1.12
+Depends: dbus-1, update-rc.d, libdbus-1-3 (>= 1.6.4), libudev1 (>= v196-105-gdecd634), bluez4 (>= 4.101), libc6 (>= 2.16), libglib-2.0-0 (>= 2.32.4)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libavahi-common3
+Version: 0.6.31-r6.1.8
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libblkid1
+Version: 2.21.2-r5.7
+Depends: libgcc1 (>= linaro-4.7), libuuid1 (>= 2.21.2), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: kernel-module-x-tables
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: eglibc-binary-localedata-en-us
+Version: 2.16-r22.4
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937155
+Auto-Installed: yes
+
+Package: libxcb1
+Version: 1.8.1-r0.7
+Depends: libxau6 (>= 1.0.7), libxdmcp6 (>= 1.1.1), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libpam-runtime
+Version: 1.1.6-r2.8
+Depends: pam-plugin-deny, pam-plugin-permit, pam-plugin-warn, pam-plugin-unix, libpam
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: udev-utils
+Version: v196-105-gdecd634-r12.2
+Depends: libgcc1 (>= linaro-4.7), libkmod2 (>= 9), libacl1 (>= 2.2.51), libc6 (>= 2.16), libblkid1 (>= 2.21.2)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: kernel-module-autofs4
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: dropbear
+Version: 2012.55-r3.1.8
+Depends: update-rc.d, libgcc1 (>= linaro-4.7), libz1 (>= 1.2.7), libc6 (>= 2.16), libpam (>= 1.1.6)
+Recommends: dropbear-systemd
+Provides: sshd, ssh
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: wpa-supplicant
+Version: 1.0-r4.8
+Depends: libdbus-1-3 (>= 1.6.4), libnl-3-200 (>= 3.2.9), libnl-3-genl (>= 3.2.9), libc6 (>= 2.16), libgcrypt11 (>= 1.5.0), libgnutls26 (>= 2.12.20)
+Recommends: wpa-supplicant-systemd, wpa-supplicant-cli, wpa-supplicant-passphrase
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/wpa_supplicant.conf c00ac06edf6935bb553f19124d63b4ea
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: pam-plugin-nologin
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libncursesw5
+Version: 5.9-r12.1.0
+Depends: libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: alsa-utils-alsamixer
+Version: 1.0.25-r2.6
+Depends: libncursesw5 (>= 5.9), libtinfo5 (>= 5.9), libc6 (>= 2.16), libpanelw5 (>= 5.9), libmenuw5 (>= 5.9), libasound2 (>= 1.0.25), libformw5 (>= 5.9)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: dropbear-systemd
+Version: 2012.55-r3.1.8
+Depends: dropbear, systemd
+Provides: sshd, ssh
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: usbutils-ids
+Version: 006-r0.8
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: systemd
+Version: v196-105-gdecd634-r12.2
+Depends: libgcc1 (>= linaro-4.7), dbus-systemd, libsystemd-journal0 (>= v196-105-gdecd634), libcap2 (>= 2.22), libdbus-1-3 (>= 1.6.4), base-passwd, libudev1 (>= v196-105-gdecd634), libkmod2 (>= 9), udev-systemd, libattr1 (>= 2.4.46), libacl1 (>= 2.2.51), liblzma5 (>= 5.1.2alpha), libsystemd-daemon0 (>= v196-105-gdecd634), libc6 (>= 2.16), shadow, libgcrypt11 (>= 1.5.0), libpam (>= 1.1.6)
+Recommends: util-linux-fsck, util-linux-mount, util-linux-swaponoff, systemd-serialgetty, util-linux-agetty, kernel-module-autofs4, module-init-tools, util-linux-umount, kernel-module-unix, e2fsprogs-e2fsck, kernel-module-ipv6
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/systemd/journald.conf 6d57c1c9ba0a6baf6355b8d855ad082b
+ /etc/systemd/logind.conf ec93af3c4d5eda0f1ac014da9e1567d1
+ /etc/systemd/system.conf cc8ef7763759f2c8011a80609b158f1a
+ /etc/systemd/user.conf fae440e7cf57c4e02c1a8d1f4231dc9d
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: libkmod2
+Version: 9-r0.0.6
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: libacl1
+Version: 2.2.51-r3.7
+Depends: libattr1 (>= 2.4.46), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: base-passwd
+Version: 3.5.26-r1.2
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: systemd-serialgetty
+Version: 1.0-r3.2
+Depends: systemd
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-g-ether
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libreadline6
+Version: 6.2-r3.7
+Depends: libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: kernel-module-snd-timer
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-module-snd, kernel-3.2.28, kernel-module-soundcore
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: pam-plugin-deny
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: angstrom-feed-configs
+Version: 1.0-r16.2
+Recommends: opkg
+Provides: opkg-collateral
+Replaces: opkg-collateral
+Conflicts: opkg-collateral
+Status: install user installed
+Architecture: beagleboard
+Conffiles:
+ /etc/opkg/base-feed.conf 7314f6b6aed0d88b1faf0b98e4b5445f
+ /etc/opkg/debug-feed.conf 1a0f28f20e8680edf0fbee7c326531d4
+ /etc/opkg/perl-feed.conf 4e655b1822b3fab9a1fd2d29c1ee5513
+ /etc/opkg/python-feed.conf 17a577e031e57270ff1b9ba95dc5b15b
+ /etc/opkg/gstreamer-feed.conf 850488df6a363bf0207ef31047031958
+ /etc/opkg/beagleboard-feed.conf 0cb5354d12de0a462d66c61f642a3f71
+ /etc/opkg/noarch-feed.conf 63857ef415469090276c1770ee3f1068
+ /etc/opkg/sdk-feed.conf ebe5b5235120305ab69db603ca2052f6
+Installed-Time: 1367937156
+
+Package: shadow
+Version: 4.1.4.3-r12.8
+Depends: libpam-runtime, libgcc1 (>= linaro-4.7), pam-plugin-env, shadow-securetty, pam-plugin-faildelay, pam-plugin-securetty, pam-plugin-limits, pam-plugin-nologin, pam-plugin-motd, pam-plugin-lastlog, pam-plugin-shells, pam-plugin-group, pam-plugin-mail, libc6 (>= 2.16), pam-plugin-rootok, libpam (>= 1.1.6)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: e2fsprogs-e2fsck
+Version: 1.42.1-r4.7
+Depends: libgcc1 (>= linaro-4.7), libblkid1 (>= 2.21.2), libcom-err2 (>= 1.42.1), libe2p2 (>= 1.42.1), libc6 (>= 2.16), libext2fs2 (>= 1.42.1), libuuid1 (>= 2.21.2)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-snd
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28, kernel-module-soundcore
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kmod
+Version: 9-r0.0.6
+Depends: libgcc1 (>= linaro-4.7), libkmod2 (>= 9), libc6 (>= 2.16)
+Provides: module-init-tools-depmod, module-init-tools, module-init-tools-insmod-static
+Replaces: module-init-tools-depmod, module-init-tools, module-init-tools-insmod-static
+Conflicts: module-init-tools-depmod, module-init-tools, module-init-tools-insmod-static
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: pam-plugin-unix
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: kernel-module-snd-soc-core
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28, kernel-module-snd-page-alloc, kernel-module-snd-pcm, kernel-module-snd, kernel-module-regmap-spi, kernel-module-soundcore, kernel-module-snd-timer
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: packagegroup-boot
+Version: 1.0-r58.5
+Depends: busybox, netbase, base-passwd, base-files
+Recommends: kernel
+Provides: task-boot
+Replaces: task-boot
+Conflicts: task-boot
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libgnutls26
+Version: 2.12.20-r8.3.8
+Depends: libcap2 (>= 2.22), libz1 (>= 1.2.7), libc6 (>= 2.16), libtasn1-3 (>= 2.13), libgpg-error0 (>= 1.10), libgcrypt11 (>= 1.5.0)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: avahi-systemd
+Version: 0.6.31-r6.1.8
+Depends: avahi-daemon, systemd
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kernel-image-3.2.28
+Version: 3.2.28-r122a.2
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-snd-pcm
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28, kernel-module-snd-page-alloc, kernel-module-snd, kernel-module-soundcore, kernel-module-snd-timer
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: iptables
+Version: 1.4.15-r0.5
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Recommends: kernel-module-nf-defrag-ipv4, kernel-module-nf-conntrack, kernel-module-ipt-masquerade, kernel-module-x-tables, kernel-module-nf-nat, kernel-module-nf-conntrack-ipv4, kernel-module-iptable-nat, kernel-module-ip-tables, kernel-module-iptable-filter
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-iptable-filter
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28, kernel-module-x-tables, kernel-module-ip-tables
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: libext2fs2
+Version: 1.42.1-r4.7
+Depends: libgcc1 (>= linaro-4.7), libcom-err2 (>= 1.42.1), libblkid1 (>= 2.21.2), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: udev
+Version: v196-105-gdecd634-r12.2
+Depends: libgcc1 (>= linaro-4.7), libudev1 (>= v196-105-gdecd634), udev-utils, libacl1 (>= 2.2.51), libc6 (>= 2.16), libkmod2 (>= 9), libblkid1 (>= 2.21.2)
+Provides: hotplug
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: bluez4
+Version: 4.101-r3.12
+Depends: libdbus-1-3 (>= 1.6.4), libudev1 (>= v196-105-gdecd634), libreadline6 (>= 6.2), libusb-1.0-0 (>= 1.0.9), libc6 (>= 2.16), libglib-2.0-0 (>= 2.32.4), libusb-0.1-4 (>= 0.1.3)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: liblzma5
+Version: 5.1.2alpha-r0.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: avahi-daemon
+Version: 0.6.31-r6.1.8
+Depends: libdaemon0 (>= 0.14), libcap2 (>= 2.22), libavahi-core7 (>= 0.6.31), libdbus-1-3 (>= 1.6.4), libc6 (>= 2.16), sysvinit-pidof, libavahi-common3 (>= 0.6.31), shadow, libexpat1 (>= 2.1.0), base-passwd
+Recommends: libnss-mdns
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/avahi/avahi-daemon.conf aef4943065ce0314732e1e5322bbdbe3
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libnl-route-3-200
+Version: 1:3.2.9-r0.6
+Depends: libnl-3-200 (>= 3.2.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libncurses5
+Version: 5.9-r12.1.0
+Depends: libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libpanelw5
+Version: 5.9-r12.1.0
+Depends: libncursesw5 (>= 5.9), libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kernel-module-smsc95xx
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: ncurses-terminfo-base
+Version: 5.9-r12.1.0
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: connman-systemd
+Version: 1.4-r18.0.11
+Depends: connman, systemd
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libattr1
+Version: 2.4.46-r4.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: avahi-utils
+Version: 0.6.31-r6.1.8
+Depends: libavahi-common3 (>= 0.6.31), libc6 (>= 2.16), libavahi-client3 (>= 0.6.31)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: sysvinit-pidof
+Version: 2.88dsf-r7.6
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: pam-plugin-env
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: update-rc.d
+Version: 0.7-r5.2
+Provides:
+Status: install ok installed
+Architecture: all
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libcap2
+Version: 2.22-r5.8
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: tinylogin
+Version: 1.4-r9.5
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+
+Package: angstrom-version
+Version: 2:v2012.12-r11.4
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: kernel-module-ipt-masquerade
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-module-nf-conntrack, kernel-3.2.28, kernel-module-nf-defrag-ipv4, kernel-module-x-tables, kernel-module-nf-nat, kernel-module-nf-conntrack-ipv4
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: kernel-module-iptable-nat
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-module-nf-conntrack, kernel-3.2.28, kernel-module-nf-defrag-ipv4, kernel-module-x-tables, kernel-module-nf-nat, kernel-module-nf-conntrack-ipv4, kernel-module-ip-tables
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: htop
+Version: 0.9-r1.6
+Depends: libncurses5 (>= 5.9), libtinfo5 (>= 5.9), ncurses-terminfo, libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: pam-plugin-lastlog
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: libavahi-client3
+Version: 0.6.31-r6.1.8
+Depends: libavahi-common3 (>= 0.6.31), libdbus-1-3 (>= 1.6.4), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libz1
+Version: 1.2.7-r0.6
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: openssh-sftp
+Version: 6.0p1-r6.8
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides: sshd, ssh
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libglib-2.0-0
+Version: 1:2.32.4-r7.6
+Depends: libgcc1 (>= linaro-4.7), libffi6 (>= 3.0.11), libz1 (>= 1.2.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: util-linux-fsck
+Version: 2.21.2-r5.7
+Depends: libblkid1 (>= 2.21.2), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: angstrom-packagegroup-boot
+Version: 1.0-r5.5
+Depends: packagegroup-boot, angstrom-version
+Provides:
+Status: install user installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+
+Package: libx11-6
+Version: 1:1.5.0-r9.2.7
+Depends: libxau6 (>= 1.0.7), libxdmcp6 (>= 1.1.1), libxcb1 (>= 1.8.1), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: kernel-3.2.28
+Version: 3.2.28-r122a.2
+Depends: kernel-image-3.2.28
+Provides: kernel-3.2.28
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: libtasn1-3
+Version: 2.13-r0.6
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: netbase
+Version: 5.0-r3.1
+Depends: update-rc.d
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Conffiles:
+ /etc/hosts 27acad957c7cded40cd6ac50d23ddc66
+ /etc/network/interfaces 0e79ac68d83a8845f49afc61043c79a5
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: cpufrequtils
+Version: 008-r5.5
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: wpa-supplicant-systemd
+Version: 1.0-r4.8
+Depends: systemd, wpa-supplicant
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: libgcc1
+Version: linaro-4.7-r9.0
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: pam-plugin-limits
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: kernel-module-nf-nat
+Version: 3.2.28-r122a.2
+Depends: kernel-module-nf-conntrack-ipv4, update-modules, kernel-module-nf-conntrack, kernel-3.2.28, kernel-module-nf-defrag-ipv4
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: libexpat1
+Version: 2.1.0-r0.6
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: locale-base-en-us
+Version: 2.16-r22.4
+Depends: eglibc-binary-localedata-en-us
+Provides: virtual-locale-en-us, virtual-locale-en
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937155
+
+Package: busybox-syslog-systemd
+Version: 1.20.2-r4.5
+Depends: systemd, busybox-syslog
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libnl-nf-3-200
+Version: 1:3.2.9-r0.6
+Depends: libnl-route-3-200 (>= 3.2.9), libnl-3-200 (>= 3.2.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: pam-plugin-faildelay
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libasound2
+Version: 1.0.25-r2.6
+Depends: libgcc1 (>= linaro-4.7), alsa-conf-base, libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: systemd-compat-units
+Version: 1.0-r18.2
+Provides:
+Status: install ok installed
+Architecture: all
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: kernel
+Version: 3.2.28-r122a.2
+Depends: kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: connman
+Version: 1.4-r18.0.11
+Depends: iptables (>= 1.4.15), dbus-1, ofono, update-rc.d, libdbus-1-3 (>= 1.6.4), bluez4, libgnutls26 (>= 2.12.20), libc6 (>= 2.16), libglib-2.0-0 (>= 2.32.4), shadow, base-passwd, wpa-supplicant
+Recommends: connman-systemd
+Provides: connman-plugin-bluetooth, connman-plugin-ofono, connman-plugin-loopback, connman-plugin-wifi, connman-plugin-ethernet
+Status: install user installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: ncurses-terminfo
+Version: 5.9-r12.1.0
+Depends: ncurses-terminfo-base
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937162
+Auto-Installed: yes
+
+Package: libmenuw5
+Version: 5.9-r12.1.0
+Depends: libncursesw5 (>= 5.9), libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libxau6
+Version: 1:1.0.7-r0.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libudev1
+Version: v196-105-gdecd634-r12.2
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: libgpg-error0
+Version: 1.10-r2.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937156
+Auto-Installed: yes
+
+Package: libsystemd-login0
+Version: v196-105-gdecd634-r12.2
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+
+Package: libformw5
+Version: 5.9-r12.1.0
+Depends: libncursesw5 (>= 5.9), libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: kernel-module-nf-defrag-ipv4
+Version: 3.2.28-r122a.2
+Depends: update-modules, kernel-3.2.28
+Provides:
+Status: install ok installed
+Architecture: beagleboard
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: wpa-supplicant-passphrase
+Version: 1.0-r4.8
+Depends: libgcrypt11 (>= 1.5.0), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937159
+Auto-Installed: yes
+
+Package: update-modules
+Version: 1.0-r13.2
+Depends: module-init-tools-depmod
+Provides:
+Status: install ok unpacked
+Architecture: all
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: libe2p2
+Version: 1.42.1-r4.7
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937158
+Auto-Installed: yes
+
+Package: libdaemon0
+Version: 0.14-r0.6
+Depends: libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libnss-mdns
+Version: 0.10-r6.8
+Depends: avahi-daemon, libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: libavahi-core7
+Version: 0.6.31-r6.1.8
+Depends: libgcc1 (>= linaro-4.7), libavahi-common3 (>= 0.6.31), libc6 (>= 2.16)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937160
+Auto-Installed: yes
+
+Package: pam-plugin-shells
+Version: 1.1.6-r2.8
+Depends: libc6 (>= 2.16), libpam (>= 1.1.6)
+Provides:
+Status: install ok installed
+Architecture: armv7a-vfp-neon
+Installed-Time: 1367937157
+Auto-Installed: yes
+

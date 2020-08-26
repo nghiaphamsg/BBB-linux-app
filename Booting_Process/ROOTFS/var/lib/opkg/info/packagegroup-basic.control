@@ -1,0 +1,17 @@
+Package: packagegroup-basic
+Version: 1.0-r11.2
+Description: packagegroup-basic version 1.0-r11
+ Basic task to get a device online
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: beagleboard
+OE: packagegroup-basic
+Homepage: unknown
+Depends: openssh-sftp, systemd-compat-units, dropbear, avahi-utils, avahi-daemon, avahi-systemd, openssh-sftp-server
+Recommends: tzdata, alsa-utils-alsamixer, kernel-module-g-mass-storage, cpufrequtils, kernel-module-snd-soc-twl4030, usbutils, iw, bluez4, kernel-module-rtc-twl, htop, kernel-module-smsc95xx, kernel-module-g-ether, wpa-supplicant, kernel-module-g-serial
+Provides: task-basic
+Replaces: task-basic
+Conflicts: task-basic
+Source: None

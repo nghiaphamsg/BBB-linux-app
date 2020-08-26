@@ -1,0 +1,2 @@
+#!/bin/sh
+update-rc.d $D dbus-1 remove

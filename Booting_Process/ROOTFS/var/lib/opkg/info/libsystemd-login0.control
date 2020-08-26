@@ -1,0 +1,13 @@
+Package: libsystemd-login0
+Version: v196-105-gdecd634-r12.2
+Description: systemd version git-r12
+ Systemd systemd-login library
+Section: base/shell
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2 & LGPLv2.1 & MIT
+Architecture: armv7a-vfp-neon
+OE: systemd
+Homepage: http://www.freedesktop.org/wiki/Software/systemd
+Depends: libgcc1 (>= linaro-4.7), libc6 (>= 2.16)
+Source: git://anongit.freedesktop.org/systemd/systemd;protocol=git file://0001-Revert-systemd-analyze-use-argparse-instead-of-getop.patch file://0002-Revert-analyze-use-GDBus-instead-of-dbus-python.patch file://0002-readahead-don-t-complain-that-we-cannot-precache-sym.patch file://0003-readahead-chunk-on-spinning-media.patch file://0004-readahead-cleanups.patch file://gtk-doc.make file://touchscreen.rules file://modprobe.rules file://var-run.conf

@@ -1,0 +1,2 @@
+/sbin/init
+/lib/systemd/systemd 300

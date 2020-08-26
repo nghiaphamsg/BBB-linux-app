@@ -1,0 +1,13 @@
+Package: angstrom-packagegroup-boot
+Version: 1.0-r5.5
+Description: angstrom-packagegroup-boot version 1.0-r5
+ Basic packagegroup to get an Angstrom powered device booting
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: beagleboard
+OE: angstrom-packagegroup-boot
+Homepage: unknown
+Depends: packagegroup-boot, angstrom-version
+Source: None

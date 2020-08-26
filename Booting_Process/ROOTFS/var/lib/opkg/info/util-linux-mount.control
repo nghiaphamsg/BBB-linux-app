@@ -1,0 +1,16 @@
+Package: util-linux-mount
+Version: 2.21.2-r5.7
+Description: A suite of basic system administration utilities.
+ Util-linux includes a suite of basic system administration utilities
+ commonly found on most Linux systems.  Some of the more important
+ utilities include disk partitioning, kernel message management,
+ filesystem creation, and system login.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+ & LGPLv2.1+ & BSD
+Architecture: armv7a-vfp-neon
+OE: util-linux
+Homepage: unknown
+Depends: libgcc1 (>= linaro-4.7), libblkid1 (>= 2.21.2), libc6 (>= 2.16)
+Source: http://kernel.org/pub/linux/utils/util-linux/v2.21/util-linux-2.21.2.tar.bz2 file://MCONFIG file://swapargs.h file://defines.h file://make_include file://util-linux-ng-replace-siginterrupt.patch file://util-linux-ng-2.16-mount_lock_path.patch file://uclibc-__progname-conflict.patch file://configure-sbindir.patch file://mbsalign-license.patch

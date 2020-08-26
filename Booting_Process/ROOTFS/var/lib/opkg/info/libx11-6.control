@@ -1,0 +1,15 @@
+Package: libx11-6
+Version: 1:1.5.0-r9.2.7
+Description: Xlib: C Language X Interface library
+ This package provides a client interface to the X Window System,
+ otherwise known as 'Xlib'.  It provides a complete API for the basic
+ functions of the window system.
+Section: x11/libs
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT & MIT-style & BSD
+Architecture: armv7a-vfp-neon
+OE: libx11
+Homepage: http://www.x.org
+Depends: libxau6 (>= 1.0.7), libxdmcp6 (>= 1.1.1), libxcb1 (>= 1.8.1), libc6 (>= 2.16)
+Source: http://xorg.freedesktop.org/releases/individual/lib/libX11-1.5.0.tar.bz2 file://keysymdef_include.patch

@@ -1,0 +1,15 @@
+Package: ofono
+Version: 1.10-r1.12
+Description: open source telephony
+ oFono is a stack for mobile telephony devices on Linux. oFono supports
+ speaking to telephony devices through specific drivers, or with generic
+ AT commands.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: ofono
+Homepage: http://www.ofono.org
+Depends: dbus-1, update-rc.d, libdbus-1-3 (>= 1.6.4), libudev1 (>= v196-105-gdecd634), bluez4 (>= 4.101), libc6 (>= 2.16), libglib-2.0-0 (>= 2.32.4)
+Source: http://kernel.org/pub/linux/network/ofono/ofono-1.10.tar.bz2 file://ofono

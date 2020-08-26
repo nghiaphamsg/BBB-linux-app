@@ -1,0 +1,2 @@
+/etc/syslog-startup.conf.busybox
+/etc/init.d/syslog.busybox

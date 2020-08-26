@@ -1,0 +1,16 @@
+Package: dbus-systemd
+Version: 1.6.4-r5.0.11
+Description: D-Bus message bus
+ D-Bus is a message bus system, a simple way for applications to talk to
+ one another. In addition to interprocess communication, D-Bus helps
+ coordinate process lifecycle; it makes it simple and reliable to code a
+ \"single instance\" application or daemon, and to launch applications and
+ daemons on demand when their services are needed.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: AFL-2 | GPLv2+
+Architecture: armv7a-vfp-neon
+OE: dbus
+Homepage: http://dbus.freedesktop.org
+Source: http://dbus.freedesktop.org/releases/dbus/dbus-1.6.4.tar.gz file://tmpdir.patch; file://dbus-1.init

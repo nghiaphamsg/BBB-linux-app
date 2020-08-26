@@ -1,0 +1,14 @@
+Package: locale-base-en-us
+Version: 2.16-r22.4
+Description: eglibc-locale version 2.16-r22
+ eglibc-locale version 2.16-r22
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2 & LGPLv2.1
+Architecture: armv7a-vfp-neon
+OE: eglibc-locale
+Homepage: unknown
+Depends: eglibc-binary-localedata-en-us
+Provides: virtual-locale-en-us, virtual-locale-en
+Source: None

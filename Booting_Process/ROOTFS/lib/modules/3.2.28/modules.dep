@@ -1,0 +1,23 @@
+kernel/drivers/usb/gadget/g_mass_storage.ko:
+kernel/sound/core/snd-page-alloc.ko:
+kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko:
+kernel/sound/soc/codecs/snd-soc-twl4030.ko: kernel/sound/soc/snd-soc-core.ko kernel/sound/core/snd-pcm.ko kernel/sound/core/snd-page-alloc.ko kernel/sound/core/snd-timer.ko kernel/sound/core/snd.ko kernel/sound/soundcore.ko kernel/drivers/base/regmap/regmap-spi.ko
+kernel/net/ipv4/netfilter/ip_tables.ko: kernel/net/netfilter/x_tables.ko
+kernel/drivers/rtc/rtc-twl.ko:
+kernel/sound/soundcore.ko:
+kernel/net/ipv4/netfilter/nf_nat.ko: kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko kernel/net/netfilter/nf_conntrack.ko
+kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko: kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko kernel/net/netfilter/nf_conntrack.ko
+kernel/drivers/usb/gadget/g_ether.ko:
+kernel/sound/core/snd.ko: kernel/sound/soundcore.ko
+kernel/sound/core/snd-pcm.ko: kernel/sound/core/snd-page-alloc.ko kernel/sound/core/snd-timer.ko kernel/sound/core/snd.ko kernel/sound/soundcore.ko
+kernel/net/ipv4/netfilter/iptable_nat.ko: kernel/net/ipv4/netfilter/nf_nat.ko kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko kernel/net/netfilter/nf_conntrack.ko kernel/net/ipv4/netfilter/ip_tables.ko kernel/net/netfilter/x_tables.ko
+kernel/sound/core/snd-timer.ko: kernel/sound/core/snd.ko kernel/sound/soundcore.ko
+kernel/net/netfilter/x_tables.ko:
+kernel/net/ipv4/netfilter/ipt_MASQUERADE.ko: kernel/net/ipv4/netfilter/nf_nat.ko kernel/net/ipv4/netfilter/nf_conntrack_ipv4.ko kernel/net/ipv4/netfilter/nf_defrag_ipv4.ko kernel/net/netfilter/nf_conntrack.ko kernel/net/netfilter/x_tables.ko
+kernel/drivers/usb/gadget/g_serial.ko:
+kernel/net/ipv4/netfilter/iptable_filter.ko: kernel/net/ipv4/netfilter/ip_tables.ko kernel/net/netfilter/x_tables.ko
+kernel/net/netfilter/nf_conntrack.ko:
+kernel/sound/soc/snd-soc-core.ko: kernel/sound/core/snd-pcm.ko kernel/sound/core/snd-page-alloc.ko kernel/sound/core/snd-timer.ko kernel/sound/core/snd.ko kernel/sound/soundcore.ko kernel/drivers/base/regmap/regmap-spi.ko
+kernel/drivers/base/regmap/regmap-spi.ko:
+kernel/drivers/net/usb/smsc95xx.ko:
+kernel/fs/autofs4/autofs4.ko:

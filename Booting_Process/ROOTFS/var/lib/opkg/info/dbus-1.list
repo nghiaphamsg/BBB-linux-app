@@ -1,0 +1,17 @@
+/usr/bin/dbus-send
+/usr/libexec/dbus-daemon-launch-helper
+/etc/init.d/dbus-1
+/usr/bin/dbus-uuidgen
+/usr/bin/dbus-daemon
+/etc/dbus-1/session.d/
+/var/run/
+/usr/bin/dbus-cleanup-sockets
+/var/lib/dbus/
+/usr/bin/dbus-launch
+/etc/default/volatiles/99_dbus
+/etc/dbus-1/session.conf
+/etc/dbus-1/system.conf
+/etc/default/volatiles/
+/etc/default/
+/var/run/dbus/
+/usr/bin/dbus-monitor

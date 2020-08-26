@@ -1,0 +1,3 @@
+#!/bin/sh
+	update-alternatives --remove  fsck.minix fsck.minix.util-linux
+	update-alternatives --remove  fsck fsck.util-linux

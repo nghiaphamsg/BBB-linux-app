@@ -1,0 +1,13 @@
+Package: liblzma5
+Version: 5.1.2alpha-r0.7
+Description: xz version 5.1.2alpha-r0
+ utils for managing LZMA compressed files
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+ & GPLv3+ & LGPLv2.1+
+Architecture: armv7a-vfp-neon
+OE: xz
+Homepage: http://tukaani.org/xz/
+Depends: libc6 (>= 2.16)
+Source: http://tukaani.org/xz/xz-5.1.2alpha.tar.gz

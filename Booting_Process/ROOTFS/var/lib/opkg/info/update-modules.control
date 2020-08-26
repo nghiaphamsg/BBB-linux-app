@@ -1,0 +1,13 @@
+Package: update-modules
+Version: 1.0-r13.2
+Description: update-modules version 1.0-r13
+ script to manage module configuration files.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2
+Architecture: all
+OE: update-modules
+Homepage: unknown
+Depends: module-init-tools-depmod
+Source: file://update-modules file://COPYING.GPL

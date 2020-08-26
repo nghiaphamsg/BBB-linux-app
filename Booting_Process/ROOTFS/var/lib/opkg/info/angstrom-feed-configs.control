@@ -1,0 +1,16 @@
+Package: angstrom-feed-configs
+Version: 1.0-r16.2
+Description: angstrom-feed-configs version 1.0-r16
+ Configuration files for online package repositories aka feeds
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: beagleboard
+OE: angstrom-feed-configs
+Homepage: unknown
+Recommends: opkg
+Provides: opkg-collateral
+Replaces: opkg-collateral
+Conflicts: opkg-collateral
+Source: None

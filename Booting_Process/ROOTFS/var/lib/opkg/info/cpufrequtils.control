@@ -1,0 +1,14 @@
+Package: cpufrequtils
+Version: 008-r5.5
+Description: cpufrequtils version 008-r5
+ To make access to the Linux kernel cpufreq subsystem easier for users and
+ cpufreq userspace tools, a cpufrequtils package was created
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: cpufrequtils
+Homepage: unknown
+Depends: libc6 (>= 2.16)
+Source: git://github.com/emagii/cpufrequtils.git file://0001-dont-unset-cflags.patch

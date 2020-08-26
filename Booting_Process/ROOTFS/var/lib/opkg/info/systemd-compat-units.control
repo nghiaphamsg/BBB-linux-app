@@ -1,0 +1,12 @@
+Package: systemd-compat-units
+Version: 1.0-r18.2
+Description: systemd-compat-units version 1.0-r18
+ Units to make systemd work better with existing sysvinit scripts
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: all
+OE: systemd-compat-units
+Homepage: unknown
+Source: file://*.service

@@ -1,0 +1,13 @@
+Package: libusb-1.0-0
+Version: 1.0.9-r1.2
+Description: libusb1 version 1.0.9-r1
+ Userspace library to access USB (version 1.0)
+Section: libs
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: LGPLv2.1+
+Architecture: armv7a-vfp-neon
+OE: libusb1
+Homepage: http://libusb.sf.net
+Depends: libc6 (>= 2.16)
+Source: http://downloads.sourceforge.net/libusb/libusb-1.0.9.tar.bz2 file://obsolete_automake_macros.patch

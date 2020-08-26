@@ -1,0 +1,15 @@
+cd $D/etc/init.d
+
+echo "Disabling the following sysv scripts: "
+
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+for i in    busybox-udhcpc   dnsmasq   hwclock   networking   syslog   syslog.busybox  ; do
+    if [ \( -e $i -o $i.sh \) -a ! -e $D/etc/systemd/system/$i.service ] ; then
+        echo -n "$i: " ; systemctl ${OPTS} mask $i.service
+    fi
+done ; echo

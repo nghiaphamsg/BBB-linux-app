@@ -1,0 +1,3 @@
+/sbin/swapoff
+swapoff.util-linux 100
+../bin/busybox 50

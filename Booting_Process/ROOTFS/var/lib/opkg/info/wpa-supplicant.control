@@ -1,0 +1,14 @@
+Package: wpa-supplicant
+Version: 1.0-r4.8
+Description: wpa-supplicant version 1.0-r4
+ A Client for Wi-Fi Protected Access (WPA).
+Section: network
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2 | BSD
+Architecture: armv7a-vfp-neon
+OE: wpa-supplicant
+Homepage: http://hostap.epitest.fi/wpa_supplicant/
+Depends: libdbus-1-3 (>= 1.6.4), libnl-3-200 (>= 3.2.9), libnl-3-genl (>= 3.2.9), libc6 (>= 2.16), libgcrypt11 (>= 1.5.0), libgnutls26 (>= 2.12.20)
+Recommends: wpa-supplicant-systemd, wpa-supplicant-cli, wpa-supplicant-passphrase
+Source: http://hostap.epitest.fi/releases/wpa_supplicant-1.0.tar.gz file://defconfig-gnutls file://wpa-supplicant.sh file://wpa_supplicant.conf file://wpa_supplicant.conf-sane file://99_wpa_supplicant

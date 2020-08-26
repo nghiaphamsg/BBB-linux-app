@@ -1,0 +1,12 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+systemctl $OPTS enable dropbear.socket
+
+if [ -z "$D" -a enable = "enable" ]; then
+    systemctl start dropbear.socket
+fi

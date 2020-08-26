@@ -1,0 +1,15 @@
+Package: libnl-3-genl
+Version: 1:3.2.9-r0.6
+Description: libnl version 3.2.9-r0
+ libnl is a library for applications dealing with netlink sockets.
+Section: libs/network
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: LGPLv2.1
+Architecture: armv7a-vfp-neon
+OE: libnl
+Homepage: http://www.infradead.org/~tgr/libnl/
+Depends: libnl-3-cli (>= 3.2.9), libnl-3-200 (>= 3.2.9), libc6 (>= 2.16)
+Replaces: libnl-genl2, libnl-genl-3-200
+Conflicts: libnl-genl2, libnl-genl-3-200
+Source: http://www.infradead.org/~tgr/libnl/files/libnl-3.2.9.tar.gz

@@ -1,0 +1,13 @@
+Package: htop
+Version: 0.9-r1.6
+Description: htop version 0.9-r1
+ htop process monitor
+Section: console/utils
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2
+Architecture: armv7a-vfp-neon
+OE: htop
+Homepage: http://htop.sf.net
+Depends: libncurses5 (>= 5.9), libtinfo5 (>= 5.9), ncurses-terminfo, libc6 (>= 2.16)
+Source: http://downloads.sourceforge.net/htop/htop-0.9.tar.gz file://remove-proc-test.patch

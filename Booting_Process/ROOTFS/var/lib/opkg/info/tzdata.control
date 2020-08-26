@@ -1,0 +1,13 @@
+Package: tzdata
+Version: 2012d-r3.0
+Description: tzdata version 2012d-r3
+ Timezone data
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: PD
+Architecture: all
+OE: tzdata
+Homepage: ftp://elsie.nci.nih.gov/pub/
+Conflicts: timezone-asia, timezone-europe, timezone-iso3166.tab, timezone-america, timezones, timezone-zone.tab, timezone-pacific, timezone-atlantic, timezone-antarctica, timezone-arctic, timezone-africa, timezone-indian, timezone-australia
+Source: ftp://ftp.iana.org/tz/releases/tzdata2012d.tar.gz;name=tzdata

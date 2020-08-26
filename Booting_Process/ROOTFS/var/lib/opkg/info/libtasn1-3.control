@@ -1,0 +1,13 @@
+Package: libtasn1-3
+Version: 2.13-r0.6
+Description: libtasn1 version 2.13-r0
+ Library for ASN.1 and DER manipulation
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: LGPLv2.1+
+Architecture: armv7a-vfp-neon
+OE: libtasn1
+Homepage: http://www.gnu.org/software/libtasn1/
+Depends: libc6 (>= 2.16)
+Source: ftp://ftp.gnu.org/gnu/libtasn1/libtasn1-2.13.tar.gz file://libtasn1_fix_for_automake_1.12.patch

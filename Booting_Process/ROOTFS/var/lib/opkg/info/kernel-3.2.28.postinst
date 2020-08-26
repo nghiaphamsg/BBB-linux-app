@@ -1,0 +1,1 @@
+	cd /boot; update-alternatives --install /boot/uImage uImage uImage-3.2.28 30228 || true

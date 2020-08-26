@@ -1,0 +1,13 @@
+/usr/sbin/avahi-daemon
+/etc/avahi/
+/etc/dbus-1/system.d/avahi-dbus.conf
+/usr/share/avahi/avahi-service.dtd
+/etc/init.d/avahi-daemon
+/usr/share/dbus-1/system-services/org.freedesktop.Avahi.service
+/etc/avahi/avahi-daemon.conf
+/usr/share/avahi/
+/etc/avahi/services/
+/etc/avahi/hosts
+/usr/share/avahi/service-types
+/etc/avahi/services/ssh.service
+/etc/avahi/services/sftp-ssh.service

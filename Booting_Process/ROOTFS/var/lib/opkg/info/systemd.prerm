@@ -1,0 +1,5 @@
+update-alternatives --remove init /lib/systemd/systemd
+update-alternatives --remove halt /bin/systemctl
+update-alternatives --remove reboot /bin/systemctl
+update-alternatives --remove shutdown /bin/systemctl
+update-alternatives --remove poweroff /bin/systemctl

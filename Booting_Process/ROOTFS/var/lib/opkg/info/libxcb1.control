@@ -1,0 +1,15 @@
+Package: libxcb1
+Version: 1.8.1-r0.7
+Description: XCB: The X protocol C binding library
+ The X protocol C-language Binding (XCB) is a replacement for Xlib
+ featuring a small footprint, latency hiding, direct access to the
+ protocol, improved threading support, and extensibility.
+Section: x11/libs
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: armv7a-vfp-neon
+OE: libxcb
+Homepage: http://xcb.freedesktop.org
+Depends: libxau6 (>= 1.0.7), libxdmcp6 (>= 1.1.1), libc6 (>= 2.16)
+Source: http://xcb.freedesktop.org/dist/libxcb-1.8.1.tar.bz2

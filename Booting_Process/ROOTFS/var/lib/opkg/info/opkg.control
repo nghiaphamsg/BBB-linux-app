@@ -1,0 +1,14 @@
+Package: opkg
+Version: 1:0.1.8+svnr633-r10.7.5
+Description: opkg version 0.1.8+svnr633-r10.7
+ Open Package Manager
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: opkg
+Homepage: http://code.google.com/p/opkg/
+Depends: opkg-config-base, update-alternatives-cworth, libopkg1 (>= 0.1.8+svnr633), libc6 (>= 2.16)
+Replaces: opkg-nogpg
+Source: svn://opkg.googlecode.com/svn;module=trunk;protocol=http file://0001-add-opkg_compare_versions-function.patch file://0002-Ensure-we-use-the-uname-gname-fields-when-extracting.patch file://0003-Fix-dependency-issues-for-preinst-scripts.patch file://0004-Failed-postinst-script-is-not-fatal-with-conf-offlin.patch file://0005-Do-not-read-etc-opkg-.conf-if-f-is-specified.patch file://0006-detect-circular-dependencies.patch file://0007-merge-newpkg-provides-even-when-oldpkg-provides-exis.patch file://0008-select_higher_version.patch file://0009-pkg_depends-fix-version-constraints.patch file://0010-pkg_depends-fix-version_constraints_satisfied.patch file://opkg-no-sync-offline.patch

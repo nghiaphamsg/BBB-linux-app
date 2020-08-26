@@ -1,0 +1,7 @@
+#!/bin/sh
+if test "x$D" != "x"; then
+	OPT="-r $D"
+else
+	OPT="-s"
+fi
+update-rc.d $OPT networking start 40 S . stop 40 0 6 1 .

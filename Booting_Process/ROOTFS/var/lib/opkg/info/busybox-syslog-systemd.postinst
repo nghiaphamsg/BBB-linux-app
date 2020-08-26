@@ -1,0 +1,12 @@
+#!/bin/sh
+OPTS=""
+
+if [ -n "$D" ]; then
+    OPTS="--root=$D"
+fi
+
+systemctl $OPTS enable busybox-syslog.service
+
+if [ -z "$D" -a enable = "enable" ]; then
+    systemctl start busybox-syslog.service
+fi

@@ -1,0 +1,13 @@
+Package: alsa-utils-alsamixer
+Version: 1.0.25-r2.6
+Description: alsa-utils version 1.0.25-r2
+ ncurses based control for ALSA mixer and settings
+Section: console/utils
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: alsa-utils
+Homepage: http://www.alsa-project.org
+Depends: libncursesw5 (>= 5.9), libtinfo5 (>= 5.9), libc6 (>= 2.16), libpanelw5 (>= 5.9), libmenuw5 (>= 5.9), libasound2 (>= 1.0.25), libformw5 (>= 5.9)
+Source: ftp://ftp.alsa-project.org/pub/utils/alsa-utils-1.0.25.tar.bz2 file://ncursesfix.patch file://uclibc-exp10-replacement.patch file://0001-alsactl-don-t-let-systemd-unit-restore-the-volume-wh.patch

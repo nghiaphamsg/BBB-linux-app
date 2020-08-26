@@ -1,0 +1,18 @@
+Package: avahi-utils
+Version: 0.6.31-r6.1.8
+Description: Avahi IPv4LL network address configuration daemon
+ Avahi is a fully LGPL framework for Multicast DNS Service Discovery. It
+ allows programs to publish and discover services and hosts running on a
+ local network with no specific configuration. This tool implements
+ IPv4LL, "Dynamic Configuration of IPv4 Link-Local Addresses" (IETF
+ RFC3927), a protocol for automatic IP address configuration from the
+ link-local 169.254.0.0/16 range without the need for a central server.
+Section: network
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+ & LGPLv2.1+
+Architecture: armv7a-vfp-neon
+OE: avahi
+Homepage: http://avahi.org
+Depends: libavahi-common3 (>= 0.6.31), libc6 (>= 2.16), libavahi-client3 (>= 0.6.31)
+Source: http://avahi.org/download/avahi-0.6.31.tar.gz file://00avahi-autoipd file://99avahi-autoipd file://initscript.patch file://avahi_fix_install_issue.patch file://fix_for_automake_1.12.x.patch

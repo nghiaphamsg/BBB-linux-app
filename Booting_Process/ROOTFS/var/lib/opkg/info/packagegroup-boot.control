@@ -1,0 +1,17 @@
+Package: packagegroup-boot
+Version: 1.0-r58.5
+Description: packagegroup-boot version 1.0-r58
+ Basic task to get a device booting
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: beagleboard
+OE: packagegroup-boot
+Homepage: unknown
+Depends: busybox, netbase, base-passwd, base-files
+Recommends: kernel
+Provides: task-boot
+Replaces: task-boot
+Conflicts: task-boot
+Source: None

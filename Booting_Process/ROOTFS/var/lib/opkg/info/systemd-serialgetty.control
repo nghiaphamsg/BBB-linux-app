@@ -1,0 +1,13 @@
+Package: systemd-serialgetty
+Version: 1.0-r3.2
+Description: systemd-serialgetty version 1.0-r3
+ Systemd serial config
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+
+Architecture: beagleboard
+OE: systemd-serialgetty
+Homepage: unknown
+Depends: systemd
+Source: file://LICENSE file://serial-getty@.service

@@ -1,0 +1,8 @@
+/etc/network/if-pre-up.d/nfsroot
+/etc/protocols
+/etc/init.d/networking
+/etc/network/interfaces
+/etc/network/if-up.d/
+/etc/services
+/etc/hosts
+/etc/rpc

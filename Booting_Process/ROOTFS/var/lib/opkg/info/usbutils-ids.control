@@ -1,0 +1,13 @@
+Package: usbutils-ids
+Version: 006-r0.8
+Description: Host side USB console utilities.
+ Contains the lsusb utility for inspecting the devices connected to the
+ USB bus.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPLv2+
+Architecture: armv7a-vfp-neon
+OE: usbutils
+Homepage: http://www.linux-usb.org
+Source: http://kernel.org/pub/linux/utils/usb/usbutils/usbutils-006.tar.gz file://usb-devices-avoid-dependency-on-bash.patch file://Fix-NULL-pointer-crash.patch

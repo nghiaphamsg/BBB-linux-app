@@ -1,0 +1,4 @@
+#!/bin/sh
+if [ -z "$D" ]; then
+    systemctl stop avahi-daemon.service
+fi

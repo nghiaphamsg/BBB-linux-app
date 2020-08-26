@@ -1,0 +1,18 @@
+Package: kmod
+Version: 9-r0.0.6
+Description: kmod version 9-r0.0
+ kmod is a set of tools to handle common tasks with Linux kernel modules
+ like                insert, remove, list, check properties, resolve
+ dependencies and aliases.
+Section: base
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: GPL-2.0+ & LGPL-2.1+
+Architecture: armv7a-vfp-neon
+OE: kmod
+Homepage: http://packages.profusion.mobi/kmod/
+Depends: libgcc1 (>= linaro-4.7), libkmod2 (>= 9), libc6 (>= 2.16)
+Provides: module-init-tools-depmod, module-init-tools, module-init-tools-insmod-static
+Replaces: module-init-tools-depmod, module-init-tools, module-init-tools-insmod-static
+Conflicts: module-init-tools-depmod, module-init-tools, module-init-tools-insmod-static
+Source: git://git.kernel.org/pub/scm/utils/kernel/kmod/kmod.git file://depmod-search.conf file://0001-man-disable-man-page-generation-because-we-don-t-hav.patch

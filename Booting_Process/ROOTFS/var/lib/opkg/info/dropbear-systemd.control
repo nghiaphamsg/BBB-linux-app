@@ -1,0 +1,14 @@
+Package: dropbear-systemd
+Version: 2012.55-r3.1.8
+Description: dropbear version 2012.55-r3.1
+ Dropbear is a lightweight SSH and SCP implementation
+Section: console/network
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: armv7a-vfp-neon
+OE: dropbear
+Homepage: http://matt.ucc.asn.au/dropbear/dropbear.html
+Depends: dropbear, systemd
+Provides: sshd, ssh
+Source: http://matt.ucc.asn.au/dropbear/releases/dropbear-2012.55.tar.gz file://urandom-xauth-changes-to-options.h.patch file://dropbear-0.53.1-static_build_fix.patch file://configure.patch file://fix-2kb-keys.patch file://allow-nopw.patch file://init file://dropbear-enable-pam.patch file://dropbear-configuration-file.patch file://dropbear file://dropbearkey.service file://dropbear@.service file://dropbear.socket

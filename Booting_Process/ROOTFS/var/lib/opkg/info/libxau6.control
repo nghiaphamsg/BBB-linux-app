@@ -1,0 +1,15 @@
+Package: libxau6
+Version: 1:1.0.7-r0.7
+Description: Xau: X Authority Database library
+ libxau provides the main interfaces to the X11 authorisation handling,
+ which controls authorisation for X connections, both client-side and
+ server-side.
+Section: x11/libs
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT-style
+Architecture: armv7a-vfp-neon
+OE: libxau
+Homepage: http://www.x.org
+Depends: libc6 (>= 2.16)
+Source: http://xorg.freedesktop.org/releases/individual/lib/libXau-1.0.7.tar.bz2

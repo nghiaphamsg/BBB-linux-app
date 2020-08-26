@@ -1,0 +1,3 @@
+# Device nodes to trigger on-demand module loading.
+snd_timer snd/timer c116:33
+autofs4 autofs c10:235

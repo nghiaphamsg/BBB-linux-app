@@ -1,0 +1,4 @@
+/lib/systemd/system/wpa_supplicant-nl80211@.service
+/lib/systemd/system/wpa_supplicant-wired@.service
+/lib/systemd/system/wpa_supplicant@.service
+/lib/systemd/system/wpa_supplicant.service

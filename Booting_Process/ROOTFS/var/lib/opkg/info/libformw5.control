@@ -1,0 +1,13 @@
+Package: libformw5
+Version: 5.9-r12.1.0
+Description: The New Curses library
+ ncurses formw library
+Section: libs
+Priority: optional
+Maintainer: Angstrom Developers <angstrom-distro-devel@linuxtogo.org>
+License: MIT
+Architecture: armv7a-vfp-neon
+OE: ncurses
+Homepage: http://www.gnu.org/software/ncurses/ncurses.html
+Depends: libncursesw5 (>= 5.9), libtinfo5 (>= 5.9), libc6 (>= 2.16)
+Source: ftp://ftp.gnu.org/gnu/ncurses/ncurses-5.9.tar.gz file://tic-hang.patch file://config.cache
