@@ -7,7 +7,7 @@
 - RBL (ROM BootLoader): load and execute the second stage bootloader from internal memory of SoC
 - SPL/MLO (Second Program Loader/Memory Loader): load and execute the third stage bootloader from DDR
 - U-Boot (Third stage bootloader): load and execute the Linux Kernel from DDR
-- MMC0: SD
+- MMC0: SD Card
 - MMC1: eMMC
 - SRAM: internal (built-in) RAM
 - DDR: external RAM (2 signals/1 clock cycle)
@@ -61,3 +61,8 @@ For example:
 
 **Linux boot sequence**
 ![Screenshot from 2020-08-26 23-40-26](https://user-images.githubusercontent.com/32474027/91317897-915cc000-e7f5-11ea-98db-108d8835a805.png)
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+### AMX335x Boot Sequence
+![Screenshot from 2020-08-27 00-36-15](https://user-images.githubusercontent.com/32474027/91324943-9b82bc80-e7fd-11ea-9ba2-df2e681b6689.png)
+
