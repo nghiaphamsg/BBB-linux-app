@@ -40,3 +40,4 @@ Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone int
 2. [CGI using C++ on the BeagleBone](http://derekmolloy.ie/beaglebone-cgicc/)
 3. [Introduction to the BeagleBone Black Device Tree](https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/device-tree-overlays)\
    And other link [The Beaglebone Black and Device Tree Overlays](http://www.ofitselfso.com/BeagleNotes/Beaglebone_Black_And_Device_Tree_Overlays.php)
+4. [Booting Process](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Booting_Process)
