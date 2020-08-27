@@ -116,6 +116,16 @@ or install by command
 
 
 
+### See more a question:
+1. [What is different between u-boot.bin and u-boot.img ?](https://stackoverflow.com/questions/29494321/what-is-different-between-u-boot-bin-and-u-boot-img)
+2. [Can anyone explain the gcc cross-compiler naming convention?](https://stackoverflow.com/questions/5731495/can-anyone-explain-the-gcc-cross-compiler-naming-convention)
+
+
+
+
+
+
+
 
 
 
