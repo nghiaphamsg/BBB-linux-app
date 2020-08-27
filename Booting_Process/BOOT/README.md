@@ -1,6 +1,6 @@
 <h1> The First Stage: Discuss About U-boot Source</h1>
 
-### Step 1: Download U-boot source code:
+### Step 1: Download U-boot source code
 ```text
   ftp://ftp.denx.de/pub/u-boot/
 ```
@@ -57,7 +57,7 @@ board
 
 <h1> The Second Stage: How To Create MLO/SPL, u-boot.img,..etc </h1>
 
-## Cross toolchain compile install (skip)
+## Cross toolchain compile install (skip if you using Ubuntu, Debian,..)
 
 If you want to use toolchain from source file
 ### Step 1: Download arm cross toolchain
