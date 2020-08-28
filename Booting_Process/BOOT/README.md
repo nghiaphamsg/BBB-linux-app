@@ -86,7 +86,7 @@ or install by command
   make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- am335x_boneblack_defconfig
 ```
 
-### Step 3: If you want to do any settings other than defaul configuration
+### Step 3: If you want to do any settings other than default configuration
 ```shell
   make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 ```
@@ -111,7 +111,7 @@ or install by command
 ![Screenshot from 2020-08-27 23-23-58](https://user-images.githubusercontent.com/32474027/91456251-ff6cba00-e8bd-11ea-8128-b7e78e4cd0c7.png)
 
 -------------------------------------------
-<h1> The Third Stage: Create A Linux Source Tree (DTB) </h1>
+<h1> The Third Stage: Generate Linux Image </h1>
 
 ### Step 1: Download Linux Kernel source from official BeagleBoard:
 ```shell
@@ -119,6 +119,7 @@ or install by command
 ```
 
 ### Step 2: Discuss about source file
+
 - Linux supports running on these various different processor architectures
 ```text
    arch
@@ -155,7 +156,7 @@ or install by command
     └── xtensa
 ```
 
-- Basically every vendor of the SOC has their own machine directory to keep their SOC specific source codes.
+- Basically every vendor of the SOC has their own machine directory to keep their SOC specific source codes
 ```tetx
   arch
   └── arm
@@ -206,10 +207,120 @@ or install by command
       ├── mach-pxa
       ├── mach-qcom                 Qualcomm
       └── ...    
-
 ```
 
-### See more a question:
+- Soc specific driver
+```text
+  Touchscreen:                   drivers
+                                  └── input
+                                      └── touchscreen
+                                           └── ti_am335x_tsc.c
+
+  Lcd:                           drivers
+                                  └── video
+                                      └── fbdev
+                      
+  MMC/SD/SDIO:                   drivers
+                                  └── mmc
+                                      └── host
+                                          └──omap_hsmmc.c
+
+  SPI:                           drivers
+                                  └── spi
+                                      └── spi-omap2-mcspi.c
+ 
+  I2C:                           drivers
+                                  └── i2c
+                                      └── busses
+                                          └──i2c-omap.c
+  
+  UART:                          drivers
+                                  └── tty
+                                      └── serial
+                                          └── omap-serial.c
+  
+  NAND/NOR - External RAM:       drivers
+                                  └── memory
+                                      └── omap-gpmc.c
+                                     
+  USB:                           drivers
+                                  └── usb
+                                      └── musb
+                                           ├── musb-core.c
+                                           ├── musb_gadget.c
+                                           └── musb_host.c
+                                 drivers
+                                  └── usb
+                                      └── phy
+                                           └── phy-am335x.c
+
+  Watchdog:                      drivers
+                                  └── watchdog
+                                      └── omap_wdt.c
+  
+  RTC:                           drivers
+                                  └── rtc
+                                      └── rtc-omap.c
+```
+
+### Step 3: Delete all the previously compiled/generated object files
+```shell
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
+```
+
+### Step 4: Apply board default configuration for uboot
+```shell
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bb.org_defconfig
+```
+
+### Step 5: If you want to do any settings other than default configuration
+You can enable/disable driver module,..etc
+```shell
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
+```
+  **Note:**
+  - "*" static loadable kernel modules
+  - "M" dynamic loadable kernel modules
+
+### Step 6: Mention the output name of the kernel image, address in the RAM
+```shell
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- uImage dtbs LOADADDR=0x80008000 -j4
+```
+**after generated**
+
+![Screenshot from 2020-08-29 00-21-00](https://user-images.githubusercontent.com/32474027/91584800-24c8f900-e98e-11ea-8a9d-6f5c0f36e04d.png)
+
+If you have problem such as:
+```text
+  /bin/sh: 1: lzop: not found
+  arch/arm/boot/compressed/Makefile:178: recipe for target 'arch/arm/boot/compressed/piggy.lzo' failed
+  make[2]: *** [arch/arm/boot/compressed/piggy.lzo] Error 1
+````
+You must install lzop by
+```shell
+  sudo apt-get -y install lzop
+```
+### Step 7: Compile and generate dynamic loadable kernel modules with the extension .ko
+The dynamic loadable kernel modules are not yet compiled "M entries", you to compile them separately.
+```shell
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules -j4
+```
+### Step 8: Kernel modules install
+All those generated modules (step7) `*`.ko files should be tranfer to the [RFS (root file system)](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Busybox) 
+```shell
+~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=<install_path> modules_install
+```
+**Atfer generated and now discuss directory**
+- File list out all the static loadable
+```text
+  lib/modules/4.4.155/modules.builtin
+```
+- File list out all the dynamically loadable
+```text
+  lib/modules/4.4.155/modules.dep
+```
+
+### See more questions:
 1. [What is different between u-boot.bin and u-boot.img ?](https://stackoverflow.com/questions/29494321/what-is-different-between-u-boot-bin-and-u-boot-img)
 2. [Can anyone explain the gcc cross-compiler naming convention?](https://stackoverflow.com/questions/5731495/can-anyone-explain-the-gcc-cross-compiler-naming-convention)
 
