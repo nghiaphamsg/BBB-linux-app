@@ -1,0 +1,2 @@
+# Soft dependencies extracted from modules themselves.
+softdep sctp_probe pre: sctp
