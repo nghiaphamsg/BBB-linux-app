@@ -18,8 +18,15 @@ https://www.busybox.net/downloads/
 ```shell
 ~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- CONFIG_PREFIX=<install_path> install
 ```
+**After generated**
+```text
+    ├── bin
+    ├── linuxrc -> bin/busybox
+    ├── sbin
+    └── usr
+```
 
-#### Step 5: Check size file system and information
+#### Step 5: Check size of file system and more information
 ```shell
 ~/RFS_Static/bin$ du -sh busybox
 ```
@@ -27,19 +34,10 @@ or
 ```shell
 ~/RFS_Static/bin$ file busybox
 ```
-
-#### Step 6: Install Kernel modules
-```shell
-~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=<install_path> modules_install
-```
 --------------------------------------------------------------------------------------------
-**ERROR 1**
+**ERROR**
 ```text
 busybox-1.32.0/scripts/gcc-version.sh: line 11: arm-linux-gnueabihf-gcc: command not found
-```
-**Solution 1**
-```shell
-sudo apt-get install -y gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 ```
 [See more here](https://stackoverflow.com/questions/36446721/arm-linux-gnueabi-g-command-not-found/42173507)
 
