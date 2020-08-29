@@ -28,7 +28,7 @@ Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone int
 |Leds                  |BusyBox       |[MPU-6000 and MPU-6050 Register Map and Descriptions Revision 4.2](https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf)|
 |74HC595               |CronTab       |[ADXL345 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/ADXL345.pdf)|
 |TMP36                 |ThingSpeak    |[74HC595 Datasheet](https://www.onsemi.com/pub/Collateral/MC74HC595-D.PDF)|
-|FT232RL USB Serial    |Socket I/O    |[TMP36 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)|
+|FT232RL USB Serial    |Buildroot     |[TMP36 Datasheet](https://www.analog.com/media/en/technical-documentation/data-sheets/TMP35_36_37.pdf)|
 |SD card (>4GB)        |Minicom       |[Beagleboard Cape Expansion Headers](https://elinux.org/Beagleboard:Cape_Expansion_Headers)|
 |LCD (Not Used)        |GParted
 
@@ -41,3 +41,5 @@ Learn ARM Linux systems, embedded linux building blocks, Busybox, Beaglebone int
 3. [Introduction to the BeagleBone Black Device Tree](https://learn.adafruit.com/introduction-to-the-beaglebone-black-device-tree/device-tree-overlays)\
    And other link [The Beaglebone Black and Device Tree Overlays](http://www.ofitselfso.com/BeagleNotes/Beaglebone_Black_And_Device_Tree_Overlays.php)
 4. [Booting Process](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Booting_Process)
+5. [Sharing internet using Network-Over-USB in BeagleBone Black](https://elementztechblog.wordpress.com/2014/12/22/sharing-internet-using-network-over-usb-in-beaglebone-black/)
+
