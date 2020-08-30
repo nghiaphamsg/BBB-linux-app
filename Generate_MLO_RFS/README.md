@@ -7,7 +7,7 @@
 
 ### Step 2: Extract file and discuss about the U-boot architecture
 ```shell
-  tar -xf u-boot-2017.05-rc2.tar.bz2
+  tar xfv u-boot-2017.05-rc2.tar.bz2
 ```
 - Different processor architecture produced by ARM
 ```text
@@ -272,6 +272,7 @@ or install by command
 ```shell
   make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- bb.org_defconfig
 ```
+**Note:** `/arch/arm/configs`
 
 ### Step 5: If you want to do any settings other than default configuration
 You can enable/disable driver module,..etc
