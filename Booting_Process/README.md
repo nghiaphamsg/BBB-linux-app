@@ -121,10 +121,73 @@ Or use "imi" commad such as:\
   - A modern U-Boot, for TI platforms such as the Beaglebone Black will have a default environment that uses 
   addresses based on that document. Looking at the [code](https://elixir.bootlin.com/u-boot/latest/source/include/configs/ti_armv7_common.h#L33) in U-Boot we see that the uImage is loaded to 0x82000000 and the device tree to 0x88000000.
 
-## Phase 4 Linux's Boot Strap Loader
+## Phase 4 Linux Boot
 
 **Linux boot sequence**
 ![Screenshot from 2020-08-26 23-40-26](https://user-images.githubusercontent.com/32474027/91317897-915cc000-e7f5-11ea-98db-108d8835a805.png)
+
+#### Step 1: Start routine stage
+```shell
+  cd /linux-4.4/arch/arm/boot/compressed; vi head.S
+```
+  + Write machine ID (r1) into the r7 register
+  + Write dtb/ftb address (r2) in to the r8 register
+
+![Screenshot from 2020-08-31 00-26-58](https://user-images.githubusercontent.com/32474027/91663009-0e9f7200-eb21-11ea-9b45-c6b334b4648d.png)
+
+#### Step 2: Decompression of the compressed kernel happens in misc.c
+  - Search "decompress_kernel" in head.S
+```vim
+  :/decompress_kernel
+```
+  - It actually call decompress_kernel() in misc.c 
+```vim
+  cd /linux-4.4/arch/arm/boot/compressed; vi misc.c
+```
+
+![Screenshot from 2020-08-31 00-51-36](https://user-images.githubusercontent.com/32474027/91663573-b4081500-eb24-11ea-8a04-9fa51c10c103.png)
+
+#### Step 3: Kernel start entry point
+```shell
+  cd /linux-4.4/arch/arm/kernel/; vi head.S
+```
+- head.S is actually architecture specific code. It's not depending upon any SOC family. It's a generic startup code for arm processors.
+  + 1. CPU specific initializations
+  + 2. Check for valid processor architecture
+  + 3. Page table inits
+  + 4. Initialize and prepare MMU for the indentified processor architecture
+  + 5. Enable MMU to support virtual memory
+  + 6. Calls "start_kernel" function of the main.c ("Arch" independent code)
+- Kernel start from entry point address:
+![Screenshot from 2020-08-31 01-17-36](https://user-images.githubusercontent.com/32474027/91664115-144c8600-eb28-11ea-9aa9-c0df78184d34.png)
+
+- After that turn on MMU:
+![Screenshot from 2020-08-31 01-22-02](https://user-images.githubusercontent.com/32474027/91664193-90df6480-eb28-11ea-9637-3b3b1d9e8ae2.png)
+
+#### Step 4: Function called start kernel in head-common.S
+```shell
+  cd /linux-4.4/arch/arm/kernel/; vi head-common.S
+```
+![Screenshot from 2020-08-31 01-26-56](https://user-images.githubusercontent.com/32474027/91664323-5de9a080-eb29-11ea-91c1-5743be0120cb.png)
+
+#### Step 5&6: The flow control comes to the file main.c of the Linux kernel
+```shell
+  cd /linux-4.4/init; vi main.c
+```
+- 1.main.c#L:499 
+  + start_kernel() code does all the startup work for the Linux kernel from initializing the very first kernel thread.
+  + All the way to mounting a root file system and executing the very first user space Linux application program.
+
+- 2.rest_init()#L:387
+  + creating 2 kernel threads by call kernel_thread():
+     + one is called kernel_init which pid number 1.
+     + create another one is called kthreadd (used to spawn other kernel threads) which pid number 2
+  + init_idle_bootup_task(current): starting the scheduler and then kernel is going to CPU idle loop.
+  
+- 3.kernel_init()#L:933
+     + free_initmem(): the memory consumed by initialization functions so far will be reclaimed, because those functions are no longer needed and no one going to call them.
+     + try_to_run_init_process(): Try to run the init application
+![Screenshot from 2020-08-31 02-11-39](https://user-images.githubusercontent.com/32474027/91665288-6f35ab80-eb2f-11ea-8cc4-08c80b0d9d03.png)
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 ### AMX335x Boot Sequence
