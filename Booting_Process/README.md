@@ -19,7 +19,7 @@
 - System clock configuration using PLL
 ![Screenshot from 2020-08-26 20-54-30](https://user-images.githubusercontent.com/32474027/91301577-1dfc8380-e7e0-11ea-8ad2-2376929fcd97.png)
 - Search Memory devices or other bootable interface for MLO or SPL
-- Copy "MLO" or "SPL" into the internal SRAM of the chip
+- Copy [MLO/SPL](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Generate_MLO_RFS/Genenal) into the internal SRAM of the chip
 - Execute "MLO" or "SPL"\
 **Note**: The Public ROM Code is physically located at the address 20000h.
 
@@ -31,33 +31,97 @@
 ![Screenshot from 2020-08-26 20-56-00](https://user-images.githubusercontent.com/32474027/91300639-95c9ae80-e7de-11ea-8490-d12c0541fbc7.png)
 
 ## Phase 2 MLO/SPL
-- Print out console the debug message
-- Reconfigures the PLL to desired value
-- Initializes the DDR registers to use the DDR memory
-- Does muxing configurations of boot peripherals pin
-- Copies the u-boot image into the DDR memory and passes control to it
-![Screenshot from 2020-08-26 21-27-32](https://user-images.githubusercontent.com/32474027/91303702-58b3eb00-e7e3-11ea-960a-15193db0316a.png)
+- Print out console the debug message.
+- Reconfigures the PLL to desired value.
+- Initializes the DDR registers to use the DDR memory.
+- Does muxing configurations of boot peripherals pin.
+- Copies the [u-boot.img](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Generate_MLO_RFS/Genenal) into the DDR memory and passes control to it
+![Screenshot from 2020-08-30 17-52-16](https://user-images.githubusercontent.com/32474027/91655189-e5172400-eae9-11ea-8af4-ec693a7a5425.png)
 
 ## Phase 3 U-Boot
-- Initialize some of the peropherals like I2C, NAND, FLASH, ETHERNET, UART, USB, MMC,..etc. Because it supports loading kernel from all these peripherals
-- Load the Linux kernel image form various boot sources to the DDR memory of the board
-- Boot sources: USB, eMMC, SD card, Ethernet, serial port, NAND, Flash,etc.
-- Passing of boot arguments to the kernel
-- Change the boot behavior of the u-boot by using a file called uEnv.txt\
-For example:
-  ```text
-    console=ttyO0,115200n8
-    ipaddr=192.168.7.2
-    serverip=192.168.7.1
-    loadaddr=0x82000000         // DDR address
-    fdtaddr=0x88000000
-    loadfromsd=load mmc 0:2 ${loadaddr} /boot/uImage;load mmc 0:2 ${fdtaddr} /boot/am335x-boneblack.dtb
-    linuxbootargs=setenv bootargs console=${console} root=/dev/mmcblk0p2 rw 
-    uenvcmd=setenv autoload no; run loadfromsd; run linuxbootargs; bootm ${loadaddr} - ${fdtaddr}
-  ```
-## Phase 4 Linux Kernel
+- Initialize some of the peropherals like I2C, NAND, FLASH, ETHERNET, UART, USB, MMC,..etc. Because it supports loading kernel from all these peripherals.
+- Load the Linux kernel image form various boot sources to the DDR memory of the board (Boot sources: USB, eMMC, SD card, ethernet, serial port, NAND, flash,etc).
+- Passing of boot arguments to the kernel.\
+- Change the boot behavior of the u-boot by using a file called [uEnv.txt](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/blob/master/Generate_MLO_RFS/Genenal/uEnv.txt)
+
+#### Show detail
+**Step 1:** u-boot.img looking for [uImage](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Generate_MLO_RFS/Genenal) (Kernel image), uImage is nothing but zImage plus u-boot header
+
+  ![Screenshot from 2020-08-30 17-57-48](https://user-images.githubusercontent.com/32474027/91655261-5a82f480-eaea-11ea-839d-cef48d6a2011.png)
+
+**Step 2:** Reading u-boot header (64bytes) of the uImage manually (dump header)\
+```text
+    typedef struct image_header {
+        uint32_t ih_magic;          /* Image Header Magic Number */
+        uint32_t ih_hcrc;           /* Image Header CRC Checksum */
+        uint32_t ih_time;           /* Image Creation Timestamp */
+        uint32_t ih_size;           /* Image Data Size */
+        uint32_t ih_load;           /* Data Load Address */
+        uint32_t ih_ep;             /* Entry Point Address */
+        uint32_t ih_dcrc;           /* Image Data CRC Checksum */
+        uint8_t ih_os;              /* Operating System */
+        uint8_t ih_arch;            /* CPU architecture */
+        uint8_t ih_type;            /* Image Type */
+        uint8_t ih_comp;            /* Compression Type */
+        uint8_t ih_name[IH_NMLEN];  /* Image Name */
+    } image_header_t;
+```
+
+- How to dump memory in U-Boot stage:
+    + Step 1: Press space bar after when you power on
+
+    + Step 2: Load uImage in to the DDR address (0x8200_0000)\
+`=> load mmc 0:1 0x82000000 uImage`
+```text
+    reading uImage
+    8957456 bytes read in 563 ms (15.2 MiB/s)
+```
+
+   + Step 3: Use "md" commad to show memory infomation\
+`=> md 0x82000000 10`
+```text
+    82000000: 56190527 4ef60b6b a920495f d0ad8800    '..Vk..N_I .....
+    82000010: 00800080 00800080 39386b9d 00020205    .........k89....
+    82000020: 756e694c 2e342d78 35312e34 00000035    Linux-4.4.155...
+    82000030: 00000000 00000000 00000000 00000000    ................
+```
+Or use "imi" commad such as:\
+`=> imi 0x82000000`
+```text
+    ## Checking Image at 82000000 ...
+      Legacy image found
+      Image Name:   Linux-4.4.155
+      Created:      2020-08-28  15:20:09 UTC
+      Image Type:   ARM Linux Kernel Image (uncompressed)
+      Data Size:    8957392 Bytes = 8.5 MiB
+      Load Address: 80008000
+      Entry Point:  80008000
+      Verifying Checksum ... OK
+```
+
+**Step 3:** How U-boot hands off control to the Boot Strap Loader of the Linux kernel
+- Let's go to the "bootm.c" file of the U-Boot source code and Explore
+```shell
+  cd u-boot-2017.05-rc2/arch/arm/lib/bootm.c
+```
+- In the boot_jump_linux(): this function pointer is initialized to entry point address\
+`kernel_entry = (void (*)(int, int, uint))images->ep;`
+- And this code hand off control to the Linux\
+`kernel_entry(0, machid, r2);`\
+  it actually sends three important arguments:
+    + 0: it actually ignored by the Linux.
+    + machid: machine id of the board which is detected by the u-boot, passed to linux via r1.
+    + r2: address of DTB (FTB) present in the DDR RAM
+      
 **Location on memory**
-![Screenshot from 2020-08-26 23-35-39](https://user-images.githubusercontent.com/32474027/91317377-f06e0500-e7f4-11ea-9e84-0fda18544698.png)
+  ![Screenshot from 2020-08-30 22-53-39](https://user-images.githubusercontent.com/32474027/91661591-f7a85200-eb17-11ea-8da6-d3422c25198b.png)
+  **Note**
+  - Load address (download address): this is the address in memory space where you download the uImage file
+  to the first address of the uImage file in the system memory (RAM or parallel NOR flash,..etc). 
+  - A modern U-Boot, for TI platforms such as the Beaglebone Black will have a default environment that uses 
+  addresses based on that document. Looking at the [code](https://elixir.bootlin.com/u-boot/latest/source/include/configs/ti_armv7_common.h#L33) in U-Boot we see that the uImage is loaded to 0x82000000 and the device tree to 0x88000000.
+
+## Phase 4 Linux's Boot Strap Loader
 
 **Linux boot sequence**
 ![Screenshot from 2020-08-26 23-40-26](https://user-images.githubusercontent.com/32474027/91317897-915cc000-e7f5-11ea-98db-108d8835a805.png)
