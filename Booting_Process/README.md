@@ -124,7 +124,7 @@ Or use "imi" commad such as:\
 ## Phase 4 Linux Boot
 
 **Linux boot sequence**
-![Screenshot from 2020-08-26 23-40-26](https://user-images.githubusercontent.com/32474027/91317897-915cc000-e7f5-11ea-98db-108d8835a805.png)
+![Screenshot from 2020-08-26 23-40-26](https://user-images.githubusercontent.com/32474027/91665525-31398700-eb31-11ea-8bd8-ab3180f6ef5d.png)
 
 #### Step 1: Start routine stage
 ```shell
@@ -188,6 +188,11 @@ Or use "imi" commad such as:\
      + free_initmem(): the memory consumed by initialization functions so far will be reclaimed, because those functions are no longer needed and no one going to call them.
      + try_to_run_init_process(): Try to run the init application
 ![Screenshot from 2020-08-31 02-11-39](https://user-images.githubusercontent.com/32474027/91665288-6f35ab80-eb2f-11ea-8cc4-08c80b0d9d03.png)
+
+## Booting Process Log
+
+![Screenshot from 2020-08-30 18-22-44](https://user-images.githubusercontent.com/32474027/91665568-81184e00-eb31-11ea-8d07-b72809d02f33.png)
+
 
 --------------------------------------------------------------------------------------------------------------------------------------------
 ### AMX335x Boot Sequence
