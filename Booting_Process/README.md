@@ -49,7 +49,10 @@
 
   ![Screenshot from 2020-08-30 17-57-48](https://user-images.githubusercontent.com/32474027/91655261-5a82f480-eaea-11ea-839d-cef48d6a2011.png)
 
-**Step 2:** Reading u-boot header (64bytes) of the uImage manually (dump header)\
+**Step 2:** Reading u-boot header (64bytes) of the uImage manually (dump header)
+```shell
+  cd u-boot/include; vi +307 image.h
+```
 ```text
     typedef struct image_header {
         uint32_t ih_magic;          /* Image Header Magic Number */
