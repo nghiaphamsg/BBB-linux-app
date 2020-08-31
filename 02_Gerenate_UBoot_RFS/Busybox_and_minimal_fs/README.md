@@ -1,22 +1,22 @@
 <h2> Step By Step How To Using Busybox Create RFS </h2>
 
 
-#### Step 1: dowload busybox
+#### Step 1: Dowload busybox
 ```text
 https://www.busybox.net/downloads/
 ```
 #### Step 2: Apply default configuration
 ```shell
-~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- defconfig
+~busybox$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- defconfig
 ```
 #### Step 3: Change default setting if you want
 ```shell
-~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
+~busybox$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 ```
 
 #### Step 4: Generate the busybox binary and minimal file system
 ```shell
-~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- CONFIG_PREFIX=<install_path> install
+~busybox$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- CONFIG_PREFIX=<install_path> install
 ```
 **After generated**
 ```text
