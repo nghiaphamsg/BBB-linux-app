@@ -55,12 +55,12 @@ You can refer to how I configure the following:
 ```shell
 make -j4
 ```
-**Note:** j4 (4 core machine) will instructs the make tool to spawn 4 threads
+**Note:** j4 (4 core machine) will instructs the make tool to spawn 4 threads\
 You can find number of cores your CPU have
 ```shell
 cat /proc/cpuinfo | grep processor | wc -l
 ```
- After generated, move to /output/image
+ After generated, move to `/output/images`
  
  ![Screenshot from 2020-09-02 21-59-42](https://user-images.githubusercontent.com/32474027/91990120-5108bf00-ed6c-11ea-9ca4-d6b023c21e68.png)
 
