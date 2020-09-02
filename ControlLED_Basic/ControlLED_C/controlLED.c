@@ -2,7 +2,7 @@
  ============================================================================
  Name        : ControlLED.c
  Author      : NghiaPham
- Version     :
+ Version     : v0.1
  Copyright   : Your copyright notice
  Description : Control USER LED 3 (internal Led) in BBB, Ansi-style
  ============================================================================
