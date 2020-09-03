@@ -84,10 +84,10 @@ int main(int argc, char *argv[]) {
 	printf("This Application controls the USER LED3\n");
 
 	if(argc != 3) {
-        printf("Usage: %s <CONTROL_OPTION> <LED_NUMBER> <STATE> \n", argv[0] );
-        printf("Valid control_options: brightness, trigger \n");
-        printf("valid 'brightness' values: 0, 1 \n");
-        printf("valid 'trigger' values: heartbeat,timer, none, shot, default-on \n");
+        printf("Usage: %s <option> <state> \n", argv[0] );
+        printf("Valid 'option': <brightness> <trigger> \n");
+        printf("	- brightness: <0> <1> \n");
+        printf("	- trigger: <heartbeat> <timer> <none> <shot> <default-on> \n");
 	}
 
 	if(strcmp(argv[1], "brightness") == 0) {
