@@ -1,4 +1,10 @@
 #!/bin/bash
 
+if [[ ${UID} -ne 0 ]]
+then
+  echo "Execute with root pls."
+  exit 1
+fi
+
 sudo route add default gw 192.168.6.1 usb1
 sudo route add default gw 192.168.7.1 usb0
