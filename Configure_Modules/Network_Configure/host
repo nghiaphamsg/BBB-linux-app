@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ ${UID} -ne 0 ]]
+then
+  echo "Execute with root pls."
+  exit 1
+fi
+
 sudo iptables --table nat --append POSTROUTING --out-interface wlp2s0 -j MASQUERADE
 sudo iptables --append FORWARD --in-interface enxf4e11ea6c577 -j ACCEPT
 sudo iptables --append FORWARD --in-interface enxf4e11ea6c57a -j ACCEPT
