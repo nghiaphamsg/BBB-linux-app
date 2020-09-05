@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo route add default gw 192.168.6.1 usb1
+sudo route add default gw 192.168.7.1 usb0

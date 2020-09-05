@@ -1,0 +1,7 @@
+#!/bin/bash
+
+sudo iptables --table nat --append POSTROUTING --out-interface wlp2s0 -j MASQUERADE
+sudo iptables --append FORWARD --in-interface enxf4e11ea6c577 -j ACCEPT
+sudo iptables --append FORWARD --in-interface enxf4e11ea6c57a -j ACCEPT
+
+sudo echo 1 > /proc/sys/net/ipv4/ip_forward
