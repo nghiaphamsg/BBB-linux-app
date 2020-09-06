@@ -1,0 +1,58 @@
+#!/bin/bash
+
+#/////////////////////////////////////////////////////////////
+# @Date:   2020/09/06
+# @Author: NghiaPham
+# @Ver:    v0.1
+#/////////////////////////////////////////////////////////////
+
+
+EXE=$( echo $1 | rev | cut -d"." -f2- | rev )
+EXT=$( echo $1 | rev | cut -d"." -f1 | rev )
+
+EXE_ARM=$EXE"_arm"
+EXE_X86=$EXE"_x86"
+
+CFLAGS="-std=c11 -O0 -Wall -g"
+CPPFLAGS="-std=c++11 -O0 -Wall -g"
+
+
+if [[ $# -ne 2 ]]
+then
+  echo "Usage: Please choose C/Cpp file and architecture option"
+  echo "option: [arm] [x86]"
+  echo "e.g $0 [*.c/*.cpp] [x86]/[arm]"
+  exit 1
+fi
+
+if [ "${2}" != "arm" ] && [ "${2}" != "x86" ]
+then 
+  echo "[Error] Arch must be arm or x86"
+  echo "Usage: Please choose C/Cpp file and architecture option"
+  echo "e.g $0 {*.c/*.cpp} {x86}/{arm}"
+  exit 1
+elif [ "${EXT}" != "c" ] && [ "${EXT}" != "cpp" ]
+then
+  echo "[Error] File must be cpp or c"
+  echo "Usage: Please choose C/Cpp file and architecture option"
+  echo "e.g $0 {*.c/*.cpp} {x86}/{arm}"
+  exit 1
+fi
+
+
+if [ "${2}" == "arm" ] && [ "${EXT}" == "cpp" ]
+then
+  echo "Generated arm..."
+  arm-linux-gnueabihf-g++ $1 -o $EXE_ARM $CPPFLAGS
+elif [ "${2}" == "x86" ] && [ "${EXT}" == "cpp" ]
+then
+  echo "Generated x86..."
+  g++ $1 -o $EXE_X86 $CPPFLAGS
+elif [ "${2}" == "arm" ] && [ "${EXT}" -== "c" ]
+then
+  echo "Generated arm..."
+  arm-linux-gnueabihf-gcc $1 -o $EXE_ARM $CFLAGS
+else [ "${2}" == "x86" ] && [ "${EXT}" == "c" ]
+  echo "Geneeated x86..."
+  gcc $1 -o $EXE_X86 $CFLAGS
+fi
