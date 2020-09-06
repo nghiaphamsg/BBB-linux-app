@@ -48,11 +48,11 @@ elif [ "${2}" == "x86" ] && [ "${EXT}" == "cpp" ]
 then
   echo "Generated x86..."
   g++ $1 -o $EXE_X86 $CPPFLAGS
-elif [ "${2}" == "arm" ] && [ "${EXT}" -== "c" ]
+elif [ "${2}" == "arm" ] && [ "${EXT}" == "c" ]
 then
   echo "Generated arm..."
   arm-linux-gnueabihf-gcc $1 -o $EXE_ARM $CFLAGS
 else [ "${2}" == "x86" ] && [ "${EXT}" == "c" ]
-  echo "Geneeated x86..."
+  echo "Generated x86..."
   gcc $1 -o $EXE_X86 $CFLAGS
 fi
