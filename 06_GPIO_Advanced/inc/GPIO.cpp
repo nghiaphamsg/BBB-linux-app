@@ -175,6 +175,7 @@ int GPIO::toggleOutput(int time) {
 	return toggleOutput(-1, time);
 }
 
+/* Toggle application */
 int GPIO::toggleOutput(int numberOfTimes, int time) {
 	setDirection(OUTPUT);
 	toggleNumber = numberOfTimes;
@@ -197,7 +198,7 @@ void* threadedToggle(void* value) {
 			gpio->setValue(HIGH);
 		else
 			gpio->setValue(LOW);
-		usleep(gpio->togglePeriod * 500);
+		usleep(gpio->togglePeriod * 1000);
 		isHigh =! isHigh;
 		if(gpio->toggleNumber > 0)
 			gpio->toggleNumber--;
@@ -210,7 +211,7 @@ void* threadedToggle(void* value) {
 /* Blocking Poll */
 int GPIO::waitForEdge() {
 	setDirection(INPUT);
-	int fd, event_count, epollfd, count = 0;
+	int fd, i, epollfd, count = 0;
 
 	epollfd = epoll_create(1);
 
@@ -237,10 +238,8 @@ int GPIO::waitForEdge() {
     }
 	/* Ignore the first trigger */
 	while(count <= 1){  					
-		std::cout << "Polling for input..." << std::endl;
-		event_count = epoll_wait(epollfd, &ev, MAX_EVENT, -1);
-		std::cout << "Ready events " << event_count << std::endl;
-		if(event_count == -1){
+		i = epoll_wait(epollfd, &ev, MAX_EVENT, -1);
+		if(i == -1){
 			std::perror("GPIO: Poll Wait fail");
 			count = 5; 						// Terminate loop
 		}
@@ -261,6 +260,7 @@ int GPIO::waitForEdge() {
 	return 0;
 }
 
+/* Callback application*/ 
 void* threadedPoll(void* value) {
 	GPIO *gpio = static_cast<GPIO*>(value);
 	while(gpio->threadRunning) {
