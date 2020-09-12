@@ -93,4 +93,26 @@ Memory mapped at address 0xb6fe8000.
 Value at address 0x44E10870 (0xb6fe8870): 0x37
 ```
 
+## 3. GPIO Analog Output
+- Waitting...
+## 4. GPIO Analog Input
+- Waitting...
+
+------
+<h1> Discuss About Source Code </h1>
+
+
+- The button is attached to **P8_16 (GPIO 46)**, and the LED is attached to **P9_12 (GPIO 60)**. In these tests, the LED will light when the button is pressed.
+
+<p align="center"> <img width="700" src="https://user-images.githubusercontent.com/32474027/92992054-da658180-f522-11ea-9b2f-e0abf1e7aed3.JPG" /> </p>
+
+- **poll.cpp**: The downside of this code is that the program cannot perform other operations while awaiting the button press.
+- **callback.cpp**: In this example, the main thread sleeps, but it could be performing other tasks. The significant change in this code is that when the `setEdgeType()` method is called, a new thread is created within the method, and it immediately returns control so that the main thread can continue to perform operations. The main thread simply sleeps for 10 seconds in this case before turning off the LED. If the button is pressed, the `activateLED()` function will be called. Whether the button is pressed or not, the LED will be turned off, and the program will exit after the sleep has finished.
+
+
+
+
+
+
+
 
