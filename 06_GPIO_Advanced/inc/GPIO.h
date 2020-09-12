@@ -41,6 +41,7 @@ class GPIO {
 		int togglePeriod;
 		int toggleNumber;
 		bool threadRunning;
+		pthread_t thread;
 		std::ofstream stream;
 		callBackType callBackFunction;
 		int write(std::string path, std::string fileName, std::string value);
@@ -94,4 +95,5 @@ class GPIO {
 
 void* threadedToggle(void *value);
 void* threadedPoll(void* value);
+
 #endif /* GPIO_H_ */

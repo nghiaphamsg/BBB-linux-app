@@ -180,7 +180,7 @@ int GPIO::toggleOutput(int numberOfTimes, int time) {
 	toggleNumber = numberOfTimes;
 	togglePeriod  = time;
 	threadRunning = true;
-	pthread_t thread;
+
 	if(pthread_create(&thread, NULL, &threadedToggle, static_cast<void*>(this))) {
 		perror("GPIO: Failed to create the toggle thread");
 		threadRunning = false;
@@ -228,7 +228,7 @@ int GPIO::waitForEdge() {
     /* ev.events = read operation | edge triggered | urgent data */
 	struct epoll_event ev;
     ev.events = EPOLLIN | EPOLLET | EPOLLPRI;
-    ev.data.fd = fd;  						// Attach the file file descriptor
+    ev.data.fd = fd;
 
     /* Register the file descriptor on the epoll instance */
     if(epoll_ctl(epollfd, EPOLL_CTL_ADD, fd, &ev) == -1) {
@@ -273,7 +273,6 @@ void* threadedPoll(void* value) {
 int GPIO::waitForEdge(callBackType callback){
 	this->threadRunning = true;
 	this->callBackFunction = callback;
-	pthread_t thread;
 
     /* Create the thread, pass the reference, address of the function and data */
     if(pthread_create(&thread, NULL, &threadedPoll, static_cast<void*>(this))){
