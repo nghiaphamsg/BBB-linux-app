@@ -1,15 +1,14 @@
 /*
  *  PressButtonAndToggleGPIO.cpp
  *
- *  Created on: Apr 14, 2020
- *  Author: NghiaPham
+ *  Created on: Apr 14, 2020 Author: NghiaPham
  */
 
 #include <iostream>
 #include <unistd.h>
-#include "GPIO.h"
+#include "inc/GPIO.h"
 
-GPIO *outGPIO, *inGPIO;           												// Global pointers
+GPIO *outGPIO, *inGPIO;
 
 int activateLED(int var){
    outGPIO->streamWrite(HIGH);
@@ -28,8 +27,8 @@ int main(){
    inGPIO->setEdgeType(FALLING);
 
    std::cout <<"You have 10 seconds to press the button now" << std::endl;
-   inGPIO->waitForEdge(&activateLED);                                //pass the function
-
+   inGPIO->waitForEdge(&activateLED);
+   
    std::cout <<"Listening, but also doing something else..." << std::endl;
    usleep(10000000);              												// Allow 10 seconds
 

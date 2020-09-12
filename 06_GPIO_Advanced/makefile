@@ -1,17 +1,20 @@
-all:	gpio
-CC		= arm-linux-gnueabihf-g++
-CFLAGS	= -std=c++11 -O0 -Wall -g
+all: poll callback
+CXX		= arm-linux-gnueabihf-g++
+CFLAGS	= -std=c++17 -O0 -Wall -g
 LIBS	= -pthread
-OBJS	= PressButtonAndToggleGPIO.o ./inc/GPIO.o
-OBJS2	= callBackFuncWithThread.o ./inc/GPIO.o
+INCLUDE	= .
 
-gpio: $(OBJS) $(OBJS2)
-	$(CC) -o poll $(OBJS) $(LIBS)
-	$(CC) -o callback $(OBJS2) $(LIBS)
-PressButtonAndToggleGPIO.o: PressButtonAndToggleGPIO.cpp ./inc/GPIO.h
-	$(CC) -c $< $(CFLAGS)
-callBackFuncWithThread.o: callBackFuncWithThread.cpp ./inc/GPIO.h
-	$(CC) -c $< $(CFLAGS)
+OBJS	= poll.o ./inc/GPIO.o
+OBJS2	= callback.o ./inc/GPIO.o
+
+poll: $(OBJS)
+	$(CXX) -o poll $(OBJS) $(LIBS)
+callback: $(OBJS2)
+	$(CXX) -o callback $(OBJS2) $(LIBS)
+poll.o: poll.cpp ./inc/GPIO.h
+	$(CXX) -c $< $(CFLAGS) -I $(INCLUDE)
+callback.o: callback.cpp ./inc/GPIO.h
+	$(CXX) -c $< $(CFLAGS) -I $(INCLUDE)
 
 include: ./inc/makefile
 

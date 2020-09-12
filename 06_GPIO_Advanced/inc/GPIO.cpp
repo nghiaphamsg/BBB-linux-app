@@ -25,14 +25,14 @@ GPIO::GPIO(int number) {
 	this->number = number;
 	this->debounceTime = 0;
 	this->togglePeriod = 100;
-	this->toggleNumber = -1; //infinite number
+	this->toggleNumber = -1;					//infinite number
 	this->callBackFunction = NULL;
 	this->threadRunning = false;
 	std::ostringstream s;
 	s << "gpio" << number;
 	this->name = std::string(s.str());
 	this->path = GPIO_PATH + this->name + "/";
-	usleep(250000); 							//delay 250ms
+	usleep(250000);								//delay 250ms
 };
 
 
