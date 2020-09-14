@@ -6,7 +6,7 @@
  */
 
 #include <iostream>
-#include "MPU6050.h"
+#include "inc/MPU6050.h"
 
 int main() {
 

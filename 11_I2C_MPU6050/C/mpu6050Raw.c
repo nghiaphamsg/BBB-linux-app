@@ -1,5 +1,5 @@
 /*
- * 	mpu6050ReadRaw.c
+ * 	mpu6050Raw.c
  *	Created on: Apr 19, 2020
  *  Author: NghiaPham
  */
@@ -20,7 +20,8 @@
 #define MPU6050_GYRO_CONFIG			0x1B
 #define MPU6050_ACCEL_CONFIG		0x1C
 
-/* Addresses of MPU6050 from which you will fetch accelerometer x,y,z high and low values */
+/* Addresses of MPU6050 from which you will fetch accelerometer x,y,z high and
+low values */
 #define MPU6050_ACCEL_XOUT_H		0x3B
 #define MPU6050_ACCEL_XOUT_L		0x3C
 #define MPU6050_ACCEL_YOUT_H		0x3D
@@ -28,7 +29,8 @@
 #define MPU6050_ACCEL_ZOUT_H		0x3F
 #define MPU6050_ACCEL_ZOUT_L		0x40
 
-/* Addresses of MPU6050 from which you will fetch gyroscope x,y,z high and low values */
+/* Addresses of MPU6050 from which you will fetch gyroscope x,y,z high and low
+values */
 #define MPU6050_GYRO_XOUT_H			0x43
 #define MPU6050_GYRO_XOUT_L			0x44
 #define MPU6050_GYRO_YOUT_H			0x45
@@ -96,13 +98,13 @@ int mpu6050Read(uint8_t base_addr, char *pBuffer, uint32_t length) {
 void mpu6050Init() {
 	/* Wake-up*/
 	mpu6050Write(MPU6050_PWR_MGMT_1, 0x00);
-	usleep(500);
+	sleep(500);
 
 	/* Configure full scale */
 	mpu6050Write(MPU6050_ACCEL_CONFIG, ACC_FS_RANGE_2);
-	usleep(500);
+	sleep(500);
 	mpu6050Write(MPU6050_GYRO_CONFIG, GYRO_FS_RANGE_250);
-	usleep(500);
+	sleep(500);
 }
 
 void mpu6050ReadAcc(short int *pBuffer) {
@@ -155,7 +157,7 @@ int main() {
 
 		printf("%0.2f	%0.2f	%0.2f\n", accX, accY, accZ);
 		printf("%0.2f	%0.2f	%0.2f\n", gyroX, gyroY, gyroZ);
-		usleep(50 * 1000);
+		sleep(50 * 1000);
 	}
 	return 0;
 }
