@@ -36,7 +36,7 @@ int transfer(int fd, unsigned char send[], unsigned char receive[], int length){
 	transfer.cs_change = 0;
 	transfer.tx_nbits = 0;
 	transfer.rx_nbits = 0;
-	transfer.word_delay_usecs = 0;
+	transfer.delay_usecs = 0;
 
 	int status = ioctl(fd, SPI_IOC_MESSAGE(1), &transfer);
 	if (status < 0) {
@@ -99,7 +99,7 @@ int main(){
 		}
 		printf("%4d\r", i);
 		fflush(stdout);
-		usleep(100000);
+		sleep(100000);
 	}
 	close(fd);
 	return 0;
