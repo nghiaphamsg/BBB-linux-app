@@ -1,0 +1,9 @@
+[Unit]
+Description=EBB RTC Service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/rtcds3231 1
+
+[Install]
+WantedBy=multi-user.target
