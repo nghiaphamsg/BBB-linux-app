@@ -36,7 +36,7 @@ ir-kbd-i2c  rtc-ds1374	    rtc-m41t80	  rtc-rv8803	   ssd1307fb	tpm_i2c_atmel
 
 ### 3. How to use RTC device driver
 - Linux supports the use of RTCs directly within the OS using LKMs. The `DS3231` is compatible with the `rtc-ds1307.ko` LKM or built-in kernel code and can be associated with the bus device at address **0x68** using the following
-- Enable bus for new rtc device
+- Enable bus for create a new rtc device
 ```shell
 debian@beaglebone: cd /sys/class/i2c-adapter/i2c-1/
 debian@beaglebone:/sys/class/i2c-adapter/i2c-1$ sudo echo "ds1307 0x68" > new_device
@@ -55,6 +55,11 @@ debian@beaglebone:/$ sudo hwclock -r -f /dev/rtc1
 ```shell
 debian@beaglebone:/$ sudo hwclock --set --date="0000-00-00 00:00:00" -f /dev/rtc1 
 ```
+- If you want delete module
+```shell
+debian@beaglebone:/sys/class/i2c-adapter/i2c-1$ sudo echo "0x68" > delete_device
+```
+
 ### 4. How to use systemd service
 - Create a new service file with `service` extension
 ```shell
@@ -62,9 +67,14 @@ debian@beaglebone:/$ cd /lib/systemd/system; vi ebb_clock.service
 ```
 - Custom service must be enabled
 ```shell
-debian@beaglebone:/$ sudo systemctl enable ebb_hwclock
+debian@beaglebone:/$ sudo systemctl enable ebb_clock
 ```
 - You can check the service status
 ```shell
- debian@beaglebone:/$ sudo systemctl status ebb_clock.service
+ debian@beaglebone:/$ sudo systemctl status ebb_clock
 ```
+- How to disable service
+```shell
+ debian@beaglebone:/$ sudo systemctl disable ebb_clock
+```
+
