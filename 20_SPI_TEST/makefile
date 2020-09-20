@@ -4,7 +4,7 @@ CFLAGS	= -std=c11 -O0 -Wall -g
 OBJS	= spitest.o
 
 spitest: $(OBJS)
-	$(CC) -o spitest $(OBJS) $(LIBS)
+	$(CC) -o spitest $(OBJS)
 spitest.o: spitest.c
 	$(CC) -c $< $(CFLAGS)
 
