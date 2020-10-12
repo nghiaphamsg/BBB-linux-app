@@ -309,7 +309,7 @@ The dynamic loadable kernel modules are not yet compiled "M entries", you to com
 ### Step 8: Kernel modules install
 All those generated modules (step7) `*`.ko files should be tranfer to the [RFS (root file system)](https://github.com/nghiaphamsg/BeagleboneBlack_Debian/tree/master/Busybox) 
 ```shell
-~busybox-1.32.0$ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=<install_path> modules_install
+  make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- INSTALL_MOD_PATH=<install_path> modules_install
 ```
 **Atfer generated and now discuss directory**
 - File list out all the static loadable
