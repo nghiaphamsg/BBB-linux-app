@@ -1,11 +1,10 @@
 /*
- * ThinkSpeak_TMP36.cpp
+ *  ThinkSpeak_TMP36.cpp
  *
- *  Created on: May 7, 2020
- *  Author: NghiaPham
+ *  Created on: May 7, 2020 Author: NghiaPham
  */
 
-#include "SocketClient.h"
+#include "inc/SocketClient.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>
@@ -31,6 +30,7 @@ int readAnalog(int place) {
 	fs.open(ss.str().c_str(), std::fstream::in);
 	fs >> rawValue;
 	fs.close();
+
 	return rawValue;
 }
 
