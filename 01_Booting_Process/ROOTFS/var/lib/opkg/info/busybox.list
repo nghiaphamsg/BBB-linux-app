@@ -1,4 +1,0 @@
-/etc/busybox.links
-/bin/sh
-/bin/busybox
-/etc/default/busybox-syslog

@@ -1,3 +1,0 @@
-#!/bin/sh
-	update-alternatives --remove  swapoff swapoff.util-linux
-	update-alternatives --remove  swapon swapon.util-linux

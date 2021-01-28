@@ -1,2 +1,0 @@
-/sbin/start-stop-daemon
-../bin/busybox 50

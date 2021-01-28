@@ -1,3 +1,0 @@
-#!/bin/sh
-	update-alternatives --install /sbin/swapoff swapoff swapoff.util-linux 100
-	update-alternatives --install /sbin/swapon swapon swapon.util-linux 100

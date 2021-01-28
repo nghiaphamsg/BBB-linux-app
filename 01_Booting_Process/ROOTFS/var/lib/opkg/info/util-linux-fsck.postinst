@@ -1,3 +1,0 @@
-#!/bin/sh
-	update-alternatives --install /sbin/fsck.minix fsck.minix fsck.minix.util-linux 100
-	update-alternatives --install /sbin/fsck fsck fsck.util-linux 100

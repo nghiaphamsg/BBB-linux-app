@@ -1,9 +1,0 @@
-/usr/bin/avahi-browse
-/usr/bin/avahi-publish-service
-/usr/bin/avahi-resolve
-/usr/bin/avahi-resolve-address
-/usr/bin/avahi-set-host-name
-/usr/bin/avahi-browse-domains
-/usr/bin/avahi-resolve-host-name
-/usr/bin/avahi-publish
-/usr/bin/avahi-publish-address

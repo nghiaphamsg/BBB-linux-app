@@ -1,8 +1,0 @@
-[Unit]
-Description=Kernel Logging Service
-
-[Service]
-ExecStart=/sbin/klogd -n
-
-[Install]
-WantedBy=multi-user.target

@@ -1,4 +1,0 @@
-#!/bin/sh
-if [ -z "$D" ]; then
-    systemctl stop wpa_supplicant.service
-fi

@@ -1,2 +1,0 @@
-#!/bin/sh
-	update-alternatives --install /bin/umount umount umount.util-linux 100

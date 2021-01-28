@@ -1,2 +1,0 @@
-#!/bin/sh
-	update-alternatives --install /bin/mount mount mount.util-linux 100

@@ -1,3 +1,0 @@
-	deluser avahi || true
-	delgroup avahi || true
-update-rc.d $D avahi-daemon remove

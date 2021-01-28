@@ -1,4 +1,0 @@
-#!/bin/sh
-	update-alternatives --remove  scp ../sbin/dropbearmulti
-	update-alternatives --remove  ssh ../sbin/dropbearmulti
-update-rc.d $D dropbear remove

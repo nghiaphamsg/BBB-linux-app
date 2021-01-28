@@ -1,3 +1,0 @@
-/sbin/poweroff
-/bin/systemctl 300
-../bin/busybox 50

@@ -1,4 +1,0 @@
-#!/bin/sh
-if test "x$D" = "x"; then
-	/etc/init.d/avahi-daemon stop
-fi

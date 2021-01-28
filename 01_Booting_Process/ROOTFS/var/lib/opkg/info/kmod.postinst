@@ -1,8 +1,0 @@
-#!/bin/sh
-	update-alternatives --install /sbin/insmod insmod insmod.kmod 60
-	update-alternatives --install /sbin/modprobe modprobe modprobe.kmod 60
-	update-alternatives --install /sbin/rmmod rmmod rmmod.kmod 60
-	update-alternatives --install /sbin/modinfo modinfo modinfo.kmod 60
-	update-alternatives --install /bin/lsmod bin-lsmod lsmod.kmod 60
-	update-alternatives --install /sbin/lsmod lsmod ../bin/lsmod.kmod 60
-	update-alternatives --install /sbin/depmod depmod depmod.kmod 60
