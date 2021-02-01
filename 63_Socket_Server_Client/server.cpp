@@ -1,5 +1,5 @@
 #include <iostream>
-#include "inc/SocketServer.h"
+#include "SocketServer.h"
 
 using namespace socketServerClient;
 
