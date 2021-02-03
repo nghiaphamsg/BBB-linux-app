@@ -6,7 +6,7 @@ using namespace socketServerClient;
 
 int main(int argc, char *argv[])
 {
-    if (argc != 2)
+    if (argc != 3)
     {
         std::cout << "Usage: ./client server_name port" << std::endl;
         std::cout << "Example: ./client 192.168.43.244 54321" << std::endl;
