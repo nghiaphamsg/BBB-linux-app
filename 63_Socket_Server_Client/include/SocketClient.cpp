@@ -1,14 +1,16 @@
 #include "SocketClient.h"
+#include <string.h>
+#include <string>
 
 namespace socketServerClient {
     SocketClient::SocketClient(std::string serverName, int portNumber)
     {
-        socketfd = -1;
-        server = NULL;
-        serverName = serverName;
-        portNumber = portNumber;
-        isConnected = false;
-        ipaddr = NULL;
+        this->socketfd = -1;
+        this->server = NULL;
+        this->serverName = serverName;
+        this->portNumber = portNumber;
+        this->isConnected = false;
+        this->ipaddr = NULL;
     }
 
     int SocketClient::connectServer()

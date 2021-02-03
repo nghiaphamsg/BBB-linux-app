@@ -8,7 +8,7 @@ include_directories(
 
 # Include header & source
 add_library(
-    client-server SHARED
+    client-server
     include/SocketClient.h
     include/SocketClient.cpp
     include/SocketServer.h

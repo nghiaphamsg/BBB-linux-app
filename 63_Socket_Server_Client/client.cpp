@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 #include "SocketClient.h"
 
 using namespace socketServerClient;
@@ -7,11 +8,12 @@ int main(int argc, char *argv[])
 {
     if (argc != 2)
     {
-        std::cout << "Usage: ./client server_name" << std::endl;
+        std::cout << "Usage: ./client server_name port" << std::endl;
+        std::cout << "Example: ./client 192.168.43.244 54321" << std::endl;
         return 2;
     }
 
-    SocketClient sc(argv[1], 54321);
+    SocketClient sc(argv[1], atoi(argv[2]));
     sc.connectServer();
 
     std::string message("Hello Server side");

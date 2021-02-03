@@ -6,15 +6,21 @@
 namespace socketServerClient {
     SocketServer::SocketServer(int port)
     {
-        port = port;
-        serverSocketfd = -1;
-        clientSocketfd = -1;
-        clientConnect = false;
+        this->port = port;
+        this->serverSocketfd = -1;
+        this->clientSocketfd = -1;
+        this->clientConnect = false;
     }
 
     int SocketServer::listenClient()
     {
         serverSocketfd = socket(AF_INET, SOCK_STREAM, 0);
+        if (serverSocketfd < 0)
+        {
+            std::cout << "Socket Server: error opening socket" << std::endl;
+            return 1;
+        }
+
         serverAddr.sin_family = AF_INET;
         serverAddr.sin_addr.s_addr = INADDR_ANY;
         serverAddr.sin_port = htons(port);
@@ -26,7 +32,12 @@ namespace socketServerClient {
             return 1;
         }
 
-        listen(serverSocketfd, BACKLOG);
+        if (listen(serverSocketfd, BACKLOG) < 0)
+        {
+            std::cout << "Socket Server: error on listen the socket" << std::endl;
+            return 1;
+        }
+
         socklen_t clientLength = sizeof clientAddr;
         clientSocketfd = accept(serverSocketfd, (struct sockaddr *)&clientAddr, &clientLength);
         if (clientSocketfd < 0)
