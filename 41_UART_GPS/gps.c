@@ -2,13 +2,14 @@
 #include <stdlib.h>
 #include <gps.h>
 
-int main(void) {
+int main(void)
+{
     // Open
     gps_init();
-
     loc_t data;
 
-    while (1) {
+    while (1)
+    {
         gps_location(&data);
 
         printf("The location is %lf,%lf\n", data.latitude, data.longitude);

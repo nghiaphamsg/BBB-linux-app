@@ -1,18 +1,18 @@
 /*
- * ADXL345_I2C_SPI.cpp
- *
+ * 	ADXL345_I2C_SPI.cpp
  *  Created on: May 3, 2020
- *  Author: NghiaPham
  */
+
 #include <iostream>
 #include "SPIDevice.h"
 #include "I2CDevice.h"
 #include "ADXL345.h"
 
-int main() {
+int main()
+{
 	std::cout << "Starting ADXL345 SPI Test" << std::endl;
 
-	SPIDevice spi(2,0);
+	SPIDevice spi(2, 0);
 	spi.setMode(SPIDevice::MODE3);
 	spi.setSpeed(1000000);
 

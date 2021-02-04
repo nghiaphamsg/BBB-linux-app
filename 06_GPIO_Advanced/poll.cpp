@@ -10,9 +10,10 @@
 
 GPIO *outGPIO, *inGPIO;
 
-int main() {
-   inGPIO = new GPIO(46);         							// Button GPIO1_14 (P8_PIN16)
-   outGPIO = new GPIO(60);									   // LED	 GPIO1_28 (P9_PIN12)
+int main()
+{
+   inGPIO = new GPIO(46);  // Button GPIO1_14 (P8_PIN16)
+   outGPIO = new GPIO(60); // LED GPIO1_28 (P9_PIN12)
 
    inGPIO->setDirection(INPUT);
    inGPIO->setEdgeType(FALLING);

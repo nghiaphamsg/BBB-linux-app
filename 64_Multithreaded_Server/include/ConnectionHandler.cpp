@@ -71,6 +71,4 @@ namespace socketServerClient {
         this->running = false;
         delete client;
     }
-
-
 }

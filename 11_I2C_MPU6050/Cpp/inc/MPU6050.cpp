@@ -45,75 +45,82 @@
 #define GYRO_FS_SENSITIVITY_2		32.8
 #define GYRO_FS_SENSITIVITY_3		16.4
 
-short MPU6050::combineRegisters(unsigned char msb, unsigned char lsb){
-   return ((short)msb << 8) | (short)lsb;
+short MPU6050::combineRegisters(unsigned char msb, unsigned char lsb)
+{
+	return ((short)msb << 8) | (short)lsb;
 }
 
-void MPU6050::updateRegisters(){
-   char accDataFormat = 0x00;
-   char gyroDataFormat = 0x00;
-   accDataFormat |= ((this->accRange) << 3);
-   this->writeRegister(MPU6050_ACCEL_CONFIG, accDataFormat);
-   gyroDataFormat |= ((this->gyroRange) << 3);
-   this->writeRegister(MPU6050_GYRO_CONFIG, gyroDataFormat);
+void MPU6050::updateRegisters()
+{
+	char accDataFormat = 0x00;
+	char gyroDataFormat = 0x00;
+	accDataFormat |= ((this->accRange) << 3);
+	this->writeRegister(MPU6050_ACCEL_CONFIG, accDataFormat);
+	gyroDataFormat |= ((this->gyroRange) << 3);
+	this->writeRegister(MPU6050_GYRO_CONFIG, gyroDataFormat);
 }
 
-void MPU6050::convertAccRawToGravity() {
+void MPU6050::convertAccRawToGravity()
+{
 	int accFsSensi = 0;
 
-	switch(MPU6050::accRange){
-		case ACC_FS_SEL_2G:
-			accFsSensi = ACC_FS_SENSITIVITY_0;
-			break;
-		case ACC_FS_SEL_4G:
-			accFsSensi = ACC_FS_SENSITIVITY_1;
-			break;
-		case ACC_FS_SEL_8G:
-			accFsSensi = ACC_FS_SENSITIVITY_2;
-			break;
-		default:
-			accFsSensi = ACC_FS_SENSITIVITY_3;
-			break;
+	switch (MPU6050::accRange)
+	{
+	case ACC_FS_SEL_2G:
+		accFsSensi = ACC_FS_SENSITIVITY_0;
+		break;
+	case ACC_FS_SEL_4G:
+		accFsSensi = ACC_FS_SENSITIVITY_1;
+		break;
+	case ACC_FS_SEL_8G:
+		accFsSensi = ACC_FS_SENSITIVITY_2;
+		break;
+	default:
+		accFsSensi = ACC_FS_SENSITIVITY_3;
+		break;
 	}
 
-	this->accX_G = (float)accX/accFsSensi;
-	this->accY_G = (float)accY/accFsSensi;
-	this->accZ_G = (float)accZ/accFsSensi;
+	this->accX_G = (float)accX / accFsSensi;
+	this->accY_G = (float)accY / accFsSensi;
+	this->accZ_G = (float)accZ / accFsSensi;
 }
 
-void MPU6050::convertGyroRawToGravity() {
+void MPU6050::convertGyroRawToGravity()
+{
 	int gyroFsSensi = 0;
 
-	switch(MPU6050::accRange){
-		case GYRO_FS_SEL_250:
-			gyroFsSensi = GYRO_FS_SENSITIVITY_0;
-			break;
-		case GYRO_FS_SEL_500:
-			gyroFsSensi = GYRO_FS_SENSITIVITY_1;
-			break;
-		case GYRO_FS_SEL_1000:
-			gyroFsSensi = GYRO_FS_SENSITIVITY_2;
-			break;
-		default:
-			gyroFsSensi = GYRO_FS_SENSITIVITY_3;
-			break;
+	switch (MPU6050::accRange)
+	{
+	case GYRO_FS_SEL_250:
+		gyroFsSensi = GYRO_FS_SENSITIVITY_0;
+		break;
+	case GYRO_FS_SEL_500:
+		gyroFsSensi = GYRO_FS_SENSITIVITY_1;
+		break;
+	case GYRO_FS_SEL_1000:
+		gyroFsSensi = GYRO_FS_SENSITIVITY_2;
+		break;
+	default:
+		gyroFsSensi = GYRO_FS_SENSITIVITY_3;
+		break;
 	}
 
-	this->gyroX_G = (double)gyroX/gyroFsSensi;
-	this->gyroY_G = (double)gyroY/gyroFsSensi;
-	this->gyroZ_G = (double)gyroZ/gyroFsSensi;
+	this->gyroX_G = (double)gyroX / gyroFsSensi;
+	this->gyroY_G = (double)gyroY / gyroFsSensi;
+	this->gyroZ_G = (double)gyroZ / gyroFsSensi;
 }
 
 MPU6050::MPU6050(unsigned int I2CBus, unsigned int I2CAddress)
-	:I2C(I2CBus, I2CAddress) {
+	: I2C(I2CBus, I2CAddress)
+{
 	this->I2CBus = I2CBus;
 	this->I2CAddress = I2CAddress;
-	this-> accX = 0;
-	this-> accY = 0;
-	this-> accZ = 0;
-	this-> gyroX = 0;
-	this-> gyroY = 0;
-	this-> gyroZ = 0;
+	this->accX = 0;
+	this->accY = 0;
+	this->accZ = 0;
+	this->gyroX = 0;
+	this->gyroY = 0;
+	this->gyroZ = 0;
 	this->accX_G = 0.0f;
 	this->accY_G = 0.0f;
 	this->accZ_G = 0.0f;
@@ -127,36 +134,41 @@ MPU6050::MPU6050(unsigned int I2CBus, unsigned int I2CAddress)
 	updateRegisters();
 }
 
-int MPU6050::readSensor() {
+int MPU6050::readSensor()
+{
 	this->registers = this->readRegisters(BUFF_SIZE, 0x00);
 
 	accX = this->combineRegisters(*(registers + MPU6050_ACCEL_XOUT_H), *(registers + MPU6050_ACCEL_XOUT_L));
 	accY = this->combineRegisters(*(registers + MPU6050_ACCEL_YOUT_H), *(registers + MPU6050_ACCEL_YOUT_L));
 	accZ = this->combineRegisters(*(registers + MPU6050_ACCEL_ZOUT_H), *(registers + MPU6050_ACCEL_ZOUT_L));
-	this->accRange = (MPU6050::ACC_RANGE) ((*(registers + MPU6050_ACCEL_CONFIG) & 0x18) >> 3);
+	this->accRange = (MPU6050::ACC_RANGE)((*(registers + MPU6050_ACCEL_CONFIG) & 0x18) >> 3);
 
 	gyroX = this->combineRegisters(*(registers + MPU6050_GYRO_XOUT_H), *(registers + MPU6050_GYRO_XOUT_L));
 	gyroY = this->combineRegisters(*(registers + MPU6050_GYRO_YOUT_H), *(registers + MPU6050_GYRO_YOUT_L));
 	gyroZ = this->combineRegisters(*(registers + MPU6050_GYRO_ZOUT_H), *(registers + MPU6050_GYRO_ZOUT_L));
-	this->gyroRange = (MPU6050::GYRO_RANGE) ((*(registers + MPU6050_GYRO_CONFIG) & 0x18) >> 3);
+	this->gyroRange = (MPU6050::GYRO_RANGE)((*(registers + MPU6050_GYRO_CONFIG) & 0x18) >> 3);
 
 	convertAccRawToGravity();
 	convertGyroRawToGravity();
 	return 0;
 }
 
-void MPU6050::setAccRange(MPU6050::ACC_RANGE accRange) {
+void MPU6050::setAccRange(MPU6050::ACC_RANGE accRange)
+{
 	this->accRange = accRange;
 	updateRegisters();
 }
 
-void MPU6050::setGyroRange(MPU6050::GYRO_RANGE gyroRange) {
+void MPU6050::setGyroRange(MPU6050::GYRO_RANGE gyroRange)
+{
 	this->gyroRange = gyroRange;
 	updateRegisters();
 }
 
-void MPU6050::display(){
-	while(1){
+void MPU6050::display()
+{
+	while (1)
+	{
 		this->readSensor();
 		std::cout 		 << std::setprecision(2)
 		<< "	ACC-X:"  << this->getAccXGravity()
@@ -172,4 +184,3 @@ void MPU6050::display(){
 }
 
 MPU6050::~MPU6050() {}
-

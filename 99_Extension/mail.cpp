@@ -16,7 +16,7 @@ int main()
     std::string body("Something like...");
 
     std::stringstream cmd;
-    cmd << "echo \""<< body <<"\" | mail -s \""<< subject <<"\" "<< to;
+    cmd << "echo \"" << body << "\" | mail -s \"" << subject << "\" " << to;
     int result = system(cmd.str().c_str());
     std::cout << "command: " << cmd.str() << std::endl;
 

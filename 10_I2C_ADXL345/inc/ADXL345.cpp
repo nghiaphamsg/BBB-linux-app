@@ -1,8 +1,6 @@
 /*
  * 	ADXL345.cpp
- *
  *  Created on: Apr 25, 2020
- *  Author: NghiaPham
  */
 
 #include "ADXL345.h"
@@ -10,7 +8,6 @@
 #include <unistd.h>
 #include <math.h>
 #include <iomanip>
-
 
 /* From Table 19. of the ADXL345 Data sheet */
 
@@ -45,101 +42,112 @@
 #define FIFO_CTL       0x38   //FIFO control
 #define FIFO_STATUS    0x39   //FIFO status
 
-short ADXL345::combineRegisters(unsigned char msb, unsigned char lsb){
-   /* shift the MSB left by 8 bits and OR with LSB */
-   return ((short)msb<<8)|(short)lsb;
+short ADXL345::combineRegisters(unsigned char msb, unsigned char lsb)
+{
+	/* shift the MSB left by 8 bits and OR with LSB */
+	return ((short)msb << 8) | (short)lsb;
 }
 
-void ADXL345::convertAccRawToGravity() {
+void ADXL345::convertAccRawToGravity()
+{
 
 	float gravity_range;
-	switch(ADXL345::range){
-		case ADXL345::PLUSMINUS_16_G:
-			gravity_range=32.0f;
-			break;
-		case ADXL345::PLUSMINUS_8_G:
-			gravity_range=16.0f;
-			break;
-		case ADXL345::PLUSMINUS_4_G:
-			gravity_range=8.0f;
-			break;
-		default:
-			gravity_range=4.0f;
-			break;
+	switch (ADXL345::range)
+	{
+	case ADXL345::PLUSMINUS_16_G:
+		gravity_range = 32.0f;
+		break;
+	case ADXL345::PLUSMINUS_8_G:
+		gravity_range = 16.0f;
+		break;
+	case ADXL345::PLUSMINUS_4_G:
+		gravity_range = 8.0f;
+		break;
+	default:
+		gravity_range = 4.0f;
+		break;
 	}
-    float resolution = 1024.0f;
-    if (this->resolution == ADXL345::HIGH)
-    	resolution = 8192.0f;
-    float factor = gravity_range/resolution;
+	float resolution = 1024.0f;
+	if (this->resolution == ADXL345::HIGH)
+		resolution = 8192.0f;
+	float factor = gravity_range / resolution;
 
-    this->accX_G = this->accelerationX * factor;
-    this->accY_G = this->accelerationY * factor;
-    this->accZ_G = this->accelerationZ * factor;
-
+	this->accX_G = this->accelerationX * factor;
+	this->accY_G = this->accelerationY * factor;
+	this->accZ_G = this->accelerationZ * factor;
 }
 
-void ADXL345::calculatePitchAndRoll(){
-	float accXSquared = accX_G * accX_G ;
-	float accYSquared = accY_G * accY_G ;
-	float accZSquared = accZ_G * accZ_G ;
-	this->pitch = 180 * atan(accX_G/sqrt(accYSquared + accZSquared))/M_PI;
-	this->roll = 180 * atan(accY_G/sqrt(accXSquared + accZSquared))/M_PI;
+void ADXL345::calculatePitchAndRoll()
+{
+	float accXSquared = accX_G * accX_G;
+	float accYSquared = accY_G * accY_G;
+	float accZSquared = accZ_G * accZ_G;
+	this->pitch = 180 * atan(accX_G / sqrt(accYSquared + accZSquared)) / M_PI;
+	this->roll = 180 * atan(accY_G / sqrt(accXSquared + accZSquared)) / M_PI;
 }
 
-int ADXL345::updateRegisters(){
-   char data_format = 0x00;
+int ADXL345::updateRegisters()
+{
+	char data_format = 0x00;
 
-   data_format = data_format|((this->resolution)<<3);
-   data_format = data_format|this->range;
-   return this->writeRegister(DATA_FORMAT, data_format);
+	data_format = data_format | ((this->resolution) << 3);
+	data_format = data_format | this->range;
+	return this->writeRegister(DATA_FORMAT, data_format);
 }
 
 ADXL345::ADXL345(unsigned int I2CBus, unsigned int I2CAddress)
-	:I2C(I2CBus, I2CAddress){
-		this->I2CAddress = I2CAddress;
-		this->I2CBus = I2CBus;
-		this->accelerationX = 0;
-		this->accelerationY = 0;
-		this->accelerationZ = 0;
-		this->pitch = 0.0f;
-		this->roll = 0.0f;
-		this->registers = NULL;
-		this->range = ADXL345::PLUSMINUS_16_G;
-		this->resolution = ADXL345::HIGH;
-		this->writeRegister(POWER_CTL, 0x08);
-		this->updateRegisters();
+	: I2C(I2CBus, I2CAddress)
+{
+	this->I2CAddress = I2CAddress;
+	this->I2CBus = I2CBus;
+	this->accelerationX = 0;
+	this->accelerationY = 0;
+	this->accelerationZ = 0;
+	this->pitch = 0.0f;
+	this->roll = 0.0f;
+	this->registers = NULL;
+	this->range = ADXL345::PLUSMINUS_16_G;
+	this->resolution = ADXL345::HIGH;
+	this->writeRegister(POWER_CTL, 0x08);
+	this->updateRegisters();
 }
 
-int ADXL345::readSensorState(){
+int ADXL345::readSensorState()
+{
 	this->registers = this->readRegisters(BUFFER_SIZE, 0x00);
 
-	if(*this->registers != 0xe5){
+	if (*this->registers != 0xe5)
+	{
 		perror("ADXL345: Failure Condition - Sensor ID not Verified");
 		return -1;
 	}
 	this->accelerationX = this->combineRegisters(*(registers + DATAX1), *(registers + DATAX0));
 	this->accelerationY = this->combineRegisters(*(registers + DATAY1), *(registers + DATAY0));
 	this->accelerationZ = this->combineRegisters(*(registers + DATAZ1), *(registers + DATAZ0));
-	this->resolution = (ADXL345::RESOLUTION) (((*(registers + DATA_FORMAT)) & 0x08) >>3);
-	this->range = (ADXL345::RANGE) ((*(registers+DATA_FORMAT)) & 0x03);
+	this->resolution = (ADXL345::RESOLUTION)(((*(registers + DATA_FORMAT)) & 0x08) >> 3);
+	this->range = (ADXL345::RANGE)((*(registers + DATA_FORMAT)) & 0x03);
 	this->convertAccRawToGravity();
 	this->calculatePitchAndRoll();
 	return 0;
 }
 
-void ADXL345::setRange(ADXL345::RANGE range) {
+void ADXL345::setRange(ADXL345::RANGE range)
+{
 	this->range = range;
 	updateRegisters();
 }
 
-void ADXL345::setResolution(ADXL345::RESOLUTION resolution) {
+void ADXL345::setResolution(ADXL345::RESOLUTION resolution)
+{
 	this->resolution = resolution;
 	updateRegisters();
 }
 
-void ADXL345::display(){
-	while(1){
-	      std::cout
+void ADXL345::display()
+{
+	while (1)
+	{
+		std::cout
 		  << "	Pitch: " << this->getPitch()
 		  << "  Roll: "  << this->getRoll()
 		  << std::setprecision(2)
@@ -147,11 +155,9 @@ void ADXL345::display(){
 		  << "  ACC-Y: " << this->getAccYGravity()
 		  << "  ACC-Z: " << this->getAccZGravity()
 		  << "      \r"	 << std::flush;
-	      usleep(100000);
-	      this->readSensorState();
+	    usleep(100000);
+	    this->readSensorState();
 	}
 }
 
 ADXL345::~ADXL345() {}
-
-

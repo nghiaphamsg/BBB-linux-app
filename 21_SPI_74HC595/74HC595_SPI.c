@@ -24,10 +24,11 @@ const unsigned char symbols[16] = {                   //(msb) HGFEDCBA (lsb)
      0b00111001, 0b01011110, 0b01111001, 0b01110001   // CdEF
 };
 
-int transfer(int fd, unsigned char send[], unsigned char receive[], int length){
+int transfer(int fd, unsigned char send[], unsigned char receive[], int length)
+{
 	struct spi_ioc_transfer transfer;
-	transfer.tx_buf = (unsigned long) send;
-	transfer.rx_buf = (unsigned long) receive;
+	transfer.tx_buf = (unsigned long)send;
+	transfer.rx_buf = (unsigned long)receive;
 	transfer.len = length;
 	transfer.speed_hz = 1000000;
 	transfer.bits_per_word = 8;
@@ -39,13 +40,15 @@ int transfer(int fd, unsigned char send[], unsigned char receive[], int length){
 	transfer.delay_usecs = 0;
 
 	int status = ioctl(fd, SPI_IOC_MESSAGE(1), &transfer);
-	if (status < 0) {
+	if (status < 0)
+	{
 		perror("SPI: SPI_IOC_MESSAGE Failed");
 		return -1;
 	}
 	return status;
 }
-int main(){
+int main()
+{
 	/* File handle and loop counter */
 	unsigned int fd, i = 0;
 	unsigned char null = 0x00;
@@ -55,31 +58,38 @@ int main(){
 	uint32_t speed = 1000000;
 
 	/* The following calls set up the SPI bus properties */
-	if ((fd = open(SPI_PATH, O_RDWR))<0){
+	if ((fd = open(SPI_PATH, O_RDWR)) < 0)
+	{
 		perror("SPI Error: Can't open device.");
 		return -1;
 	}
-	if (ioctl(fd, SPI_IOC_WR_MODE, &mode)==-1){
+	if (ioctl(fd, SPI_IOC_WR_MODE, &mode) == -1)
+	{
 		perror("SPI: Can't set SPI mode.");
 		return -1;
 	}
-	if (ioctl(fd, SPI_IOC_RD_MODE, &mode)==-1){
+	if (ioctl(fd, SPI_IOC_RD_MODE, &mode) == -1)
+	{
 		perror("SPI: Can't get SPI mode.");
 		return -1;
 	}
-	if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits)==-1){
+	if (ioctl(fd, SPI_IOC_WR_BITS_PER_WORD, &bits) == -1)
+	{
 		perror("SPI: Can't set bits per word.");
 		return -1;
 	}
-	if (ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits)==-1){
+	if (ioctl(fd, SPI_IOC_RD_BITS_PER_WORD, &bits) == -1)
+	{
 		perror("SPI: Can't get bits per word.");
 		return -1;
 	}
-	if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed)==-1){
+	if (ioctl(fd, SPI_IOC_WR_MAX_SPEED_HZ, &speed) == -1)
+	{
 		perror("SPI: Can't set max speed HZ");
 		return -1;
 	}
-	if (ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed)==-1){
+	if (ioctl(fd, SPI_IOC_RD_MAX_SPEED_HZ, &speed) == -1)
+	{
 		perror("SPI: Can't get max speed HZ.");
 		return -1;
 	}
@@ -93,7 +103,8 @@ int main(){
 	for (i = 0; i <= 255; i++)
 	{
 		/* This function can send and receive data, but just sending here */
-		if (transfer(fd, (unsigned char*) &i, &null, 1) == -1){
+		if (transfer(fd, (unsigned char *)&i, &null, 1) == -1)
+		{
 			perror("Failed to update the display");
 			return -1;
 		}

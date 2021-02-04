@@ -69,33 +69,39 @@ values */
 
 int fd;
 
-int mpu6050Write(uint8_t addr, uint8_t data) {
+int mpu6050Write(uint8_t addr, uint8_t data)
+{
 	char buff[2];
 	buff[0] = addr;
 	buff[1] = data;
-	if(write(fd, buff, 2) != 2) {
+	if (write(fd, buff, 2) != 2)
+	{
 		perror("Write failed. \n");
 		return -1;
 	}
 	return 0;
 }
 
-int mpu6050Read(uint8_t base_addr, char *pBuffer, uint32_t length) {
+int mpu6050Read(uint8_t base_addr, char *pBuffer, uint32_t length)
+{
 	char buff[2];
 	buff[0] = base_addr;
-	if(write(fd, buff, 1) != 1) {
+	if (write(fd, buff, 1) != 1)
+	{
 		perror("Write failed. \n");
 		return -1;
 	}
 
-	if((read(fd, pBuffer, length)) != length) {
+	if ((read(fd, pBuffer, length)) != length)
+	{
 		perror("Read failed. \n");
 		return -1;
 	}
 	return 0;
 }
 
-void mpu6050Init() {
+void mpu6050Init()
+{
 	/* Wake-up*/
 	mpu6050Write(MPU6050_PWR_MGMT_1, 0x00);
 	sleep(500);
@@ -107,53 +113,59 @@ void mpu6050Init() {
 	sleep(500);
 }
 
-void mpu6050ReadAcc(short int *pBuffer) {
+void mpu6050ReadAcc(short int *pBuffer)
+{
 	char accBuffer[6];
 	mpu6050Read(MPU6050_ACCEL_XOUT_H, accBuffer, 6);
 
-	pBuffer[0] = (int)( (accBuffer[0] << 8) | accBuffer[1] );
-	pBuffer[1] = (int)( (accBuffer[2] << 8) | accBuffer[3] );
-	pBuffer[2] = (int)( (accBuffer[4] << 8) | accBuffer[5] );
+	pBuffer[0] = (int)((accBuffer[0] << 8) | accBuffer[1]);
+	pBuffer[1] = (int)((accBuffer[2] << 8) | accBuffer[3]);
+	pBuffer[2] = (int)((accBuffer[4] << 8) | accBuffer[5]);
 }
 
-void mpu6050ReadGyro(short *pBuffer) {
+void mpu6050ReadGyro(short *pBuffer)
+{
 	char gyroBuffer[6];
 	mpu6050Read(MPU6050_GYRO_XOUT_H, gyroBuffer, 6);
 
-	pBuffer[0] = ( (gyroBuffer[0] << 8) | gyroBuffer[1] );
-	pBuffer[1] = ( (gyroBuffer[2] << 8) | gyroBuffer[3] );
-	pBuffer[2] = ( (gyroBuffer[4] << 8) | gyroBuffer[5] );
+	pBuffer[0] = ((gyroBuffer[0] << 8) | gyroBuffer[1]);
+	pBuffer[1] = ((gyroBuffer[2] << 8) | gyroBuffer[3]);
+	pBuffer[2] = ((gyroBuffer[4] << 8) | gyroBuffer[5]);
 }
 
-int main() {
+int main()
+{
 	double accX, accY, accZ, gyroX, gyroY, gyroZ;
 	short accValue[3], gyroValue[3];
 
-	if((fd = open(I2C1_PATH, O_RDWR)) < 0) {
-        perror("Failed to open I2C device file.\n");
-        return -1;
+	if ((fd = open(I2C1_PATH, O_RDWR)) < 0)
+	{
+		perror("Failed to open I2C device file.\n");
+		return -1;
 	}
 
 	/* Set I2C slave address */
-	if(ioctl(fd, I2C_SLAVE, SLAVE_ADDRESS) < 0) {
-        perror("Failed to set I2C slave address.\n");
-        close(fd);
-        return -1;
+	if (ioctl(fd, I2C_SLAVE, SLAVE_ADDRESS) < 0)
+	{
+		perror("Failed to set I2C slave address.\n");
+		close(fd);
+		return -1;
 	}
 
 	mpu6050Init();
 
-	while(1) {
+	while (1)
+	{
 		mpu6050ReadAcc(accValue);
 		mpu6050ReadGyro(gyroValue);
 
-		accX = (double) accValue[0]/ACC_FS_SENSITIVITY_0;
-		accY = (double) accValue[1]/ACC_FS_SENSITIVITY_0;
-		accZ = (double) accValue[2]/ACC_FS_SENSITIVITY_0;
+		accX = (double)accValue[0] / ACC_FS_SENSITIVITY_0;
+		accY = (double)accValue[1] / ACC_FS_SENSITIVITY_0;
+		accZ = (double)accValue[2] / ACC_FS_SENSITIVITY_0;
 
-		gyroX = (double) gyroValue[0]/GYRO_FS_SENSITIVITY_0;
-		gyroY = (double) gyroValue[1]/GYRO_FS_SENSITIVITY_0;
-		gyroZ = (double) gyroValue[2]/GYRO_FS_SENSITIVITY_0;
+		gyroX = (double)gyroValue[0] / GYRO_FS_SENSITIVITY_0;
+		gyroY = (double)gyroValue[1] / GYRO_FS_SENSITIVITY_0;
+		gyroZ = (double)gyroValue[2] / GYRO_FS_SENSITIVITY_0;
 
 		printf("%0.2f	%0.2f	%0.2f\n", accX, accY, accZ);
 		printf("%0.2f	%0.2f	%0.2f\n", gyroX, gyroY, gyroZ);
